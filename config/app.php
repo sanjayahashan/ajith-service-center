@@ -175,6 +175,13 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+        * MongoDB Servive Providers
+        */
+        Jenssegers\Mongodb\MongodbServiceProvider::class,
+        'Jenssegers\Mongodb\Auth\PasswordResetServiceProvider',
+        Jenssegers\Mongodb\MongodbQueueServiceProvider::class,
+
     ],
 
     /*
@@ -225,6 +232,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Moloquent' => Jenssegers\Mongodb\Eloquent\Model::class,
 
     ],
 
