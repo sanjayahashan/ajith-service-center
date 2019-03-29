@@ -97,6 +97,12 @@ return [
             ]
         ],
 
+        'mongodb_conn' => [
+            'driver' => 'mongodb',
+            'dsn'=>'mongodb+srv://sanjay:sanjay123@sanjay-mnhx2.mongodb.net/test?retryWrites=true',
+            'database' => 'ajith-motors',
+        ]
+
     ],
 
     /*
