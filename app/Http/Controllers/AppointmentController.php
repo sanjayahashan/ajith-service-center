@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Appoinment;
+use App\Appointment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
-class AppoinmentController extends Controller
+class AppointmentController extends Controller
 {
     public function __construct()
     {
@@ -19,7 +21,7 @@ class AppoinmentController extends Controller
      */
     public function index()
     {
-        //
+        return view('appointments.index');
     }
 
     /**
@@ -40,7 +42,15 @@ class AppoinmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $appointment = new Appointment;
+        $appointment->user_id = Auth::user()->_id;
+        $appointment->time = $request->time;
+        $appointment->date = $request->date;
+
+        // print_r(Auth::user()->_id);
+        $appointment->save();
+
+        return redirect()->route('appointments.create');
     }
 
     /**
@@ -86,5 +96,19 @@ class AppoinmentController extends Controller
     public function destroy(Appoinment $appoinment)
     {
         //
+    }
+
+    public function displayTimeSlots(Request $request)
+    {
+        if($request->ajax())
+        {
+            $date = $request->date;
+            $appointment_times = DB::collection('appointments')
+                ->select('time')
+                ->where('date', $date)
+                ->get();
+                
+            return response()->json($appointment_times);
+        }
     }
 }
