@@ -8,7 +8,7 @@
             <div class="inner-container clearfix">            
                 <h1>Appointment</h1>
                 <ul class="bread-crumb clearfix">
-                    <li><a href="index-2.html">Home</a></li>
+                    <li><a href="{{ route('home') }}">Home</a></li>
                     <li>Appointment</li>
                 </ul>
             </div>
@@ -26,54 +26,23 @@
 
             <!-- Service form-->
             <div class="service-form">
-                <form>
+                <form action="{{ route('appointments.store') }}" method="post">
+                @csrf
                     <div class="vehicle-detail">
                         <div class="row clearfix">
-                            <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                                <div class="title"><h3>Vehicle Year</h3></div>
-                                <div class="range-slider-one clearfix">
-                                    <div class="vehicle-year-slider"></div>
-                                    <div class="input"><input type="text" class="property-amount" name="field-name" readonly></div>
-                                </div>
-                            </div>
-
-                            <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                                <div class="title"><h3>Vehicle Make</h3></div>
-                                <div class="field-inner">
-                                    <select class="custom-select-box">
-                                        <option>Choose Now</option>    
-                                        <option>Choose Now</option>
-                                        <option>Choose Now</option>
-                                        <option>Choose Now</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group col-md-4 col-sm-6 col-xs-12">
-                                <div class="title"><h3>Vehicle Mileage</h3></div>
-                                <input type="text" name="v-mileage" placeholder="Vehicle Mileage">
-                            </div>
+                            
 
                             <div class="form-group col-lg-6 col-md-4 col-sm-6 col-xs-12">
                                 <div class="title"><h3>Appointment Date</h3></div>
                                 <div class="field-inner">
-                                    <select class="custom-select-box">
-                                        <option>Preffered Date of Appointment</option>    
-                                        <option>Preffered Date of Appointment</option>
-                                        <option>Preffered Date of Appointment</option>
-                                        <option>Preffered Date of Appointment</option>
-                                    </select>
+                                    <input id="date" type="date" name="date" min="2019">
                                 </div>
                             </div>
 
                             <div class="form-group col-lg-6 col-md-4 col-sm-12 col-xs-12">
                                 <div class="title"><h3>Preffered Time Frame</h3></div>
                                 <div class="field-inner">
-                                    <select class="custom-select-box">
-                                        <option>Choose Time</option>    
-                                        <option>Choose Time</option>
-                                        <option>Choose Time</option>
-                                        <option>Choose Time</option>
+                                    <select id="time" name="time" class="custom-select-box">
                                     </select>
                                 </div>
                             </div>
@@ -180,38 +149,16 @@
                                     <label for="service-14">Other</label>
                                 </div>
                             </div> 
+
+                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                            <button class="theme-btn btn-style-one" type="submit" name="submit-form">Reserve Appointment</button>
+                            </div>
                         </div>
                     </div>
                 </form>
             </div><!--End Appointment Form-->
 
-            <!--Contact Form-->
-            <div class="contact-form">
-                <div class="title"><h3>Contact Details</h3></div>
-                <form>
-                    <div class="row clearfix">
-                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
-                            <input type="text" name="name" placeholder="Enter Your Name">
-                        </div>
-
-                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
-                            <input type="email" name="email" placeholder="Enter Your Email Address">
-                        </div>
-
-                        <div class="form-group col-md-4 col-sm-12 col-xs-12">
-                            <input type="text" name="subject" placeholder="Enter Your Subject">
-                        </div>
-
-                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                            <textarea placeholder="Additional Questions or Comments"></textarea>
-                        </div>
-
-                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                            <button type="submit" class="theme-btn">Submit Now</button>
-                        </div>
-                    </div>
-                </form>
-            </div><!--End Contact Form-->
+            
 
         </div>
     </div>
@@ -228,4 +175,54 @@
     </section>
     <!-- End Subscribe Section -->
 
+@endsection
+
+@section('scripts')
+<script>
+    $(document).ready(function () {
+        // console.log(timeslots);
+        $("#date").change(function(e) {
+            var timeslots = ["9.00-9.45", "9.45-10.30", "10.30-11.15", "11.15-12.00", "12.00-12.45", "1.45-2.30", "2.30-3.15", "3.15-4.00", "4.00-4.45"];
+            e.preventDefault();
+            $('#time').empty();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: '{{ route('appointments.times') }}',
+                type: 'post',
+                data: {
+                    date: $('#date').val(),
+                },
+                success: function(data) {
+                    // console.log(data[0].time);
+                    if(data.length>0)
+                    {
+                        data.forEach(function(value) {
+                            if(timeslots.includes(value.time))
+                            {
+                                var i = timeslots.indexOf(value.time);
+                                timeslots.splice(i, 1);
+                            }
+                        });
+                        console.log(timeslots);
+                        var $dropdown = $('#time');
+                    }
+                },
+                complete: function() {
+                    for (var i of timeslots)
+                    {
+                        var opt = document.createElement("option");
+                        opt.value = i;
+                        opt.innerHTML = i;
+                        $('#time').append(opt);
+                        console.log(i);
+                    }
+                }
+            });
+        });
+    });
+</script>
 @endsection

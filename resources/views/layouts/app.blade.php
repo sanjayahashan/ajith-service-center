@@ -26,6 +26,7 @@
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
 <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
 </head>
@@ -127,12 +128,8 @@
                                                 <li><a href="coming-soon.html">Coming Soon</a></li>
                                             </ul>
                                         </li>
-                                        <li class="dropdown"><a href="#">Services</a>
-                                            <ul>
-                                                <li><a href="services.html">Services 01</a></li>
-                                                <li><a href="services-2.html">Services 02</a></li>
-                                                <li><a href="service-detail.html">Services Single</a></li>  
-                                            </ul>
+                                        <li>
+                                            <a href="{{ route('appointments.create') }}">Appointments</a>
                                         </li>
                                         <li class="dropdown has-mega-menu"><a href="#">Pages</a>
                                             <div class="mega-menu">
@@ -525,6 +522,8 @@
     <script src="js/map-script.js"></script>
     <!--End Google Map APi-->
     <script src="js/color-settings.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    @yield('scripts')
 
     </div>    
     <!--End pagewrapper-->
