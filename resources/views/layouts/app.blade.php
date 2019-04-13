@@ -33,6 +33,7 @@ crossorigin="anonymous">
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
 <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
 </head>
@@ -117,8 +118,13 @@ crossorigin="anonymous">
                                         <li><a href="{{ route('showroom') }}">Showroom</a>
                                             
                                         </li>
+<<<<<<< HEAD
                                         <li class="dropdown"><a href="#">Service center</a>
                                             
+=======
+                                        <li>
+                                            <a href="{{ route('appointments.create') }}">Appointments</a>
+>>>>>>> a4cef3493b2c03db058bd1aa1b6358761ab76fdd
                                         </li>
                                         <li class="dropdown has-mega-menu"><a href="#">Pages</a>
                                             <div class="mega-menu">
@@ -496,6 +502,8 @@ crossorigin="anonymous">
     <script src="js/map-script.js"></script>
     <!--End Google Map APi-->
     <script src="js/color-settings.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    @yield('scripts')
 
     </div>    
     <!--End pagewrapper-->
