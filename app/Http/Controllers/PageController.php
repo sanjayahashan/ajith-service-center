@@ -17,4 +17,8 @@ class PageController extends Controller
     {
         return view('contact');
     }
+
+    public function showroom(){
+        return view('showroom');
+    }
 }

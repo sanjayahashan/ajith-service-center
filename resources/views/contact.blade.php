@@ -8,7 +8,7 @@
             <div class="inner-container clearfix">            
                 <h1>Contact us</h1>
                 <ul class="bread-crumb clearfix">
-                    <li><a href="index-2.html">Home</a></li>
+                    <li><a href="">Home</a></li>
                     <li>Contact us</li>
                 </ul>
             </div>

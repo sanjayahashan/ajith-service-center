@@ -4,7 +4,7 @@
 <!-- Mirrored from expert-themes.com/html/motor-expert/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 29 Mar 2019 09:52:49 GMT -->
 <head>
 <meta charset="utf-8">
-<title>Motor Expert - Auto Repair & Service HTML Template | Home Page Three</title>
+<title>Ajith motors</title>
 
 <!-- Stylesheets -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -13,6 +13,13 @@
 <link href="{{ asset('css/navigation.css') }}" rel="stylesheet" type="text/css"><!-- REVOLUTION NAVIGATION STYLES -->
 <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
+integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" 
+crossorigin="anonymous">
+</script>
 <!--Color Switcher Mockup-->
 <link href="{{ asset('css/color-switcher-design.css') }}" rel="stylesheet">
 
@@ -104,48 +111,21 @@
                                 
                                 <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
                                     <ul class="navigation clearfix">
-                                        <li class="current dropdown"><a href="#">Home</a>
-                                            <ul>
-                                                <li><a href="index-2.html">Homepage One</a></li>
-                                                <li><a href="index-3.html">Homepage Two</a></li>
-                                                <li><a href="index-4.html">Homepage Three</a></li>
-                                                <li class="dropdown"><a href="#">Header Styles</a>
-                                                    <ul>
-                                                        <li><a href="index-2.html">Header Style One</a></li>
-                                                        <li><a href="index-3.html">Header Style Two</a></li>
-                                                        <li><a href="index-4.html">Header Style Three</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
+                                        <li><a href="{{ route('home1') }}">Home</a>
+                                            
                                         </li>
-                                        <li class="dropdown"><a href="#">About</a>
-                                            <ul>
-                                                <li><a href="{{ route('about') }}">About</a></li>
-                                                <li><a href="appointment.html">Appointment</a></li>
-                                                <li><a href="team.html">Team</a></li>
-                                                <li><a href="price.html">Price</a></li>
-                                                <li><a href="coming-soon.html">Coming Soon</a></li>
-                                            </ul>
+                                        <li><a href="{{ route('showroom') }}">Showroom</a>
+                                            
                                         </li>
-                                        <li class="dropdown"><a href="#">Services</a>
-                                            <ul>
-                                                <li><a href="services.html">Services 01</a></li>
-                                                <li><a href="services-2.html">Services 02</a></li>
-                                                <li><a href="service-detail.html">Services Single</a></li>  
-                                            </ul>
+                                        <li class="dropdown"><a href="#">Service center</a>
+                                            
                                         </li>
                                         <li class="dropdown has-mega-menu"><a href="#">Pages</a>
                                             <div class="mega-menu">
                                                 <div class="mega-menu-bar row clearfix">
                                                     <div class="column col-md-4 col-sm-4 col-xs-12">
                                                         <h3>About Us</h3>
-                                                        <ul>
-                                                            <li><a href="team.html">Team</a></li>
-                                                            <li><a href="team-single.html">Team Single</a></li>
-                                                            <li><a href="testimonials.html">Testimonial</a></li>
-                                                            <li><a href="faq.html">FAQ's</a></li>
-                                                            <li><a href="comming-soon.html">Coming Soon</a></li>
-                                                        </ul>
+                                                
                                                     </div>
                                                     <div class="column col-md-4 col-sm-4 col-xs-12">
                                                         <h3>Solutions</h3>
@@ -157,16 +137,7 @@
                                                             <li><a href="services-single.html">Civil Engineering</a></li>
                                                         </ul>
                                                     </div>
-                                                    <div class="column col-md-4 col-sm-4 col-xs-12">
-                                                        <h3>Blog</h3>
-                                                        <ul>
-                                                            <li><a href="blog.html">Our Blog</a></li>
-                                                            <li><a href="blog-classic.html">Blog Classic</a></li>
-                                                            <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                                            <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                                                            <li><a href="blog-detail.html">Blog Details</a></li>
-                                                        </ul>
-                                                    </div>
+                                                    
                                                     
                                                 </div>
                                             </div>
