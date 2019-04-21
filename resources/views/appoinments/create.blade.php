@@ -7,10 +7,6 @@
         <div class="auto-container">
             <div class="inner-container clearfix">            
                 <h1>Appointment</h1>
-                <ul class="bread-crumb clearfix">
-                    <li><a href="{{ route('home') }}">Home</a></li>
-                    <li>Appointment</li>
-                </ul>
             </div>
         </div>
     </section>

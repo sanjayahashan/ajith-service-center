@@ -8,6 +8,12 @@ author:  ThemePunch
 email:      info@themepunch.com
 website:    http://www.themepunch.com
 -----------------------------------------------------------------------------*/
+.down{
+  margin-top: 15%;
+}
+.topnav-right {
+  float: right;
+}
 .ares.tparrows {
   cursor:pointer;
   background:#fff;

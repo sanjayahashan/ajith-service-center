@@ -53,12 +53,11 @@ crossorigin="anonymous">
                     <div class="inner-container clearfix">
                         <div class="top-left">
                             <ul class="clearfix">
-                                <li>Autocare is your one stap solution for all auto repair needs!</li>
-                                <li><a href="appointment.html">Get a Free Auto Checkup Now <i class="fa fa-long-arrow-alt-right"></i></a></li>
+                                <li>No 1 yamaha motor bike dealer in srilanka</li>
                             </ul>
                         </div>
                         <div class="top-right clearfix">
-                            <p><i class="fa fa-phone-volume"></i> 24/7 Support  0700 125 3657</p>
+                            <p><i class="fa fa-phone-volume"></i> Contact us 277965823</p>
                         </div>
                     </div>
                 </div>
@@ -71,7 +70,7 @@ crossorigin="anonymous">
                     <div class="main-box clearfix">
                         <!--Logo Box-->
                         <div class="logo-box">
-                            <div class="logo"><a href="index-2.html"><img src="{{ asset('images/logo-2.png') }}" alt=""></a></div>
+                            <div class="logo"><img src="{{ asset('images/logo-2.png') }}" alt=""></div>
                         </div>
                         <!--outer Box-->
                             <div class="outer-box">
@@ -118,52 +117,21 @@ crossorigin="anonymous">
                                         <li><a href="{{ route('showroom') }}">Showroom</a>
                                             
                                         </li>
-<<<<<<< HEAD
-                                        <li class="dropdown"><a href="#">Service center</a>
-                                            
-=======
+                                        <li class="dropdown"><a href="#">Service center</a>   </li>
                                         <li>
                                             <a href="{{ route('appointments.create') }}">Appointments</a>
->>>>>>> a4cef3493b2c03db058bd1aa1b6358761ab76fdd
+
                                         </li>
-                                        <li class="dropdown has-mega-menu"><a href="#">Pages</a>
-                                            <div class="mega-menu">
-                                                <div class="mega-menu-bar row clearfix">
-                                                    <div class="column col-md-4 col-sm-4 col-xs-12">
-                                                        <h3>About Us</h3>
-                                                
-                                                    </div>
-                                                    <div class="column col-md-4 col-sm-4 col-xs-12">
-                                                        <h3>Solutions</h3>
-                                                        <ul>
-                                                            <li><a href="services-single.html">Solutions</a></li>
-                                                            <li><a href="services-single.html">Chemical Engineering</a></li>
-                                                            <li><a href="services-single.html">Energy & Power Engineering</a></li>
-                                                            <li><a href="services-single.html">Oil & Gas Engineering</a></li>
-                                                            <li><a href="services-single.html">Civil Engineering</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    
-                                                    
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="dropdown"><a href="#">Shop</a>
-                                            <ul>
-                                                <li><a href="shop.html">Products</a></li>
-                                                <li><a href="shop-single.html">Products Detail</a></li>
-                                                <li><a href="checkout.html">Checkout</a></li>
-                                                <li><a href="cart.html">Shopping Cart</a></li>
-                                                <li><a href="login.html">Registration</a></li>
-                                            </ul>
-                                        </li>
+                                        
+                                        
                                         <li><a href="{{ route('contact') }}">Contact</a></li>
                                         @guest
-                                            <li><a href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                                            <li><a href="{{ route('login') }}">{{ __('LOGIN') }}</a></li>
                                             @if (Route::has('register'))
-                                                <li><a href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                                                <li><a href="{{ route('register') }}">{{ __('REGISTER') }}</a></li>
                                             @endif
                                         @else
+                                        
                                         <li class="dropdown"><a href="#">{{ Auth::user()->name }}</a>
                                             <ul>
                                                 <li><a href="{{ route('logout') }}"
@@ -177,6 +145,7 @@ crossorigin="anonymous">
                                                 </li>
                                             </ul>
                                         </li>
+                                        
                                         @endguest
                                     </ul>
                                 </div>
@@ -212,107 +181,43 @@ crossorigin="anonymous">
                             
                             <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent1">
                                 <ul class="navigation clearfix">
-                                    <li class="current dropdown"><a href="#">Home</a>
-                                        <ul>
-                                            <li><a href="index-2.html">Homepage One</a></li>
-                                            <li><a href="index-3.html">Homepage Two</a></li>
-                                            <li><a href="index-4.html">Homepage Three</a></li>
-                                            <li class="dropdown"><a href="#">Header Styles</a>
-                                                <ul>
-                                                    <li><a href="index-2.html">Header Style One</a></li>
-                                                    <li><a href="index-3.html">Header Style Two</a></li>
-                                                    <li><a href="index-4.html">Header Style Three</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
+                                    <li><a href="#">HOME</a>
+                                        
                                     </li>
-                                    <li class="dropdown"><a href="#">About</a>
-                                        <ul>
-                                            <li><a href="about.html">About</a></li>
-                                            <li><a href="appointment.html">Appointment</a></li>
-                                            <li><a href="team.html">Team</a></li>
-                                            <li><a href="price.html">Price</a></li>
-                                            <li><a href="coming-soon.html">Coming Soon</a></li>
-                                        </ul>
+                                    <li><a href="#">SHOWROOM</a>
+                                        
                                     </li>
-                                    <li class="dropdown"><a href="#">Projects</a>
-                                        <ul>
-                                            <li><a href="project.html">Project</a></li>
-                                            <li><a href="project-detail.html">Project Detail</a></li>
-                                        </ul>
+                                    <li><a href="#">SERVICE CENTER</a>
+                                        
                                     </li>
-                                    <li class="dropdown"><a href="#">Services</a>
-                                        <ul>
-                                            <li><a href="services.html">Services 01</a></li>
-                                            <li><a href="services-2.html">Services 02</a></li>
-                                            <li><a href="service-detail.html">Services Single</a></li>
-                                        </ul>
+                                    <li><a href="#">APPOINTMENTS</a>
+                                        
                                     </li>
-                                    <li class="dropdown has-mega-menu"><a href="#">Pages</a>
-                                        <div class="mega-menu">
-                                            <div class="mega-menu-bar row clearfix">
-                                                <div class="column col-md-3 col-sm-3 col-xs-12">
-                                                    <h3>About Us</h3>
-                                                    <ul>
-                                                        <li><a href="team.html">Team</a></li>
-                                                        <li><a href="team-single.html">Team Single</a></li>
-                                                        <li><a href="testimonials.html">Testimonial</a></li>
-                                                        <li><a href="faq.html">FAQ's</a></li>
-                                                        <li><a href="comming-soon.html">Coming Soon</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="column col-md-3 col-sm-3 col-xs-12">
-                                                    <h3>Solutions</h3>
-                                                    <ul>
-                                                        <li><a href="services-single.html">Solutions</a></li>
-                                                        <li><a href="services-single.html">Chemical Engineering</a></li>
-                                                        <li><a href="services-single.html">Energy & Power Engineering</a></li>
-                                                        <li><a href="services-single.html">Oil & Gas Engineering</a></li>
-                                                        <li><a href="services-single.html">Civil Engineering</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="column col-md-3 col-sm-3 col-xs-12">
-                                                    <h3>Blog</h3>
-                                                    <ul>
-                                                        <li><a href="blog.html">Our Blog</a></li>
-                                                        <li><a href="blog-classic.html">Blog Classic</a></li>
-                                                        <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                                        <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                                                        <li><a href="blog-detail.html">Blog Details</a></li>
-                                                    </ul>
-                                                </div>
-                                                
-                                                <div class="column col-md-3 col-sm-3 col-xs-12">
-                                                    <h3>Shop</h3>
-                                                    <ul>
-                                                        <li><a href="shop.html">Shop</a></li>
-                                                        <li><a href="shop-single.html">Product Details</a></li>
-                                                        <li><a href="shoping-cart.html">Cart Page</a></li>
-                                                        <li><a href="checkout.html">Checkout Page</a></li>
-                                                        <li><a href="login.html">Registration Page</a></li>
-                                                    </ul>
-                                                </div>
-    
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="dropdown"><a href="#">News</a>
-                                        <ul>
-                                            <li><a href="blog.html">News</a></li>
-                                            <li><a href="blog-detail.html">News Detail</a></li>
-                                            <li><a href="error-page.html">Error Page</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown"><a href="#">Shop</a>
-                                        <ul>
-                                            <li><a href="shop.html">Products</a></li>
-                                            <li><a href="shop-single.html">Products Detail</a></li>
-                                            <li><a href="checkout.html">Checkout</a></li>
-                                            <li><a href="cart.html">Shopping Cart</a></li>
-                                            <li><a href="login.html">Registration</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="#">CONTACT</a> </li>
+                                        
+                                    @guest
+                                            <li><a href="{{ route('login') }}">{{ __('LOGIN') }}</a></li>
+                                            @if (Route::has('register'))
+                                                <li><a href="{{ route('register') }}">{{ __('REGISTER') }}</a></li>
+                                            @endif
+                                        @else
+                                        
+                                        <li class="dropdown"><a href="#">{{ Auth::user()->name }}</a>
+                                            <ul>
+                                                <li><a href="{{ route('logout') }}"
+                                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                                    {{ __('Logout') }}</a>
+
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                        @csrf
+                                                    </form>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        
+                                        @endguest
+                                        
                                 </ul>
                             </div>
                         </nav><!-- Main Menu End-->
@@ -323,8 +228,12 @@ crossorigin="anonymous">
             <!--End Sticky Header-->
         </header>
         <!--End Main Header -->
-
-        @yield('content')
+     <div class="down">
+     <body>
+     @yield('content')
+     </body>
+        
+        </div>
 
         <!-- Main Footer -->
         <footer class="main-footer" style="background-image: url(images/background/4.jpg);">
@@ -435,7 +344,7 @@ crossorigin="anonymous">
             <div class="footer-bottom">
                 <div class="auto-container">
                     <div class="copyright-text">
-                        <p>Copyrights © 2018 All Rights Reserved. by <a href="#"> Expert Themes</a></p>
+                        
                     </div>
                 </div>
             </div>
@@ -443,34 +352,11 @@ crossorigin="anonymous">
         <!-- End Main Footer -->
 
     <!--Scroll to top-->
-    <div class="scroll-to-top scroll-to-target" data-target="html"><span class="icon fa fa-angle-double-up"></span></div>
-
-    <!-- Color Palate / Color Switcher -->
-    <div class="color-palate">
-        <div class="color-trigger">
-            <i class="fa fa-cog"></i>
-        </div>
-        <div class="color-palate-head">
-            <h6>Choose Your Color</h6>
-        </div>
-        <div class="various-color clearfix">
-            <div class="colors-list">
-                <span class="palate default-color active" data-theme-file="css/color-themes/default-theme.css"></span>
-                <span class="palate green-color" data-theme-file="css/color-themes/green-theme.css"></span>
-                <span class="palate yellow-color" data-theme-file="css/color-themes/blue-theme.css"></span>
-                <span class="palate orange-color" data-theme-file="css/color-themes/orange-theme.css"></span>
-                <span class="palate purple-color" data-theme-file="css/color-themes/purple-theme.css"></span>
-                <span class="palate teal-color" data-theme-file="css/color-themes/teal-theme.css"></span>
-                <span class="palate brown-color" data-theme-file="css/color-themes/brown-theme.css"></span>
-                <span class="palate redd-color" data-theme-file="css/color-themes/redd-color.css"></span>
-            </div>
-        </div>
+    
         
-        <a href="#" class="purchase-btn">Purchase now $15</a>
         
-        <div class="palate-foo">
-            <span>You will find much more options for colors and styling in admin panel. This color picker is used only for demonstation purposes.</span>
-        </div>
+        
+        
     </div>
 
     <script src="{{ asset('js/jquery.js') }}"></script>
