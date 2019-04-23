@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Appointment;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -31,7 +32,7 @@ class AppointmentController extends Controller
      */
     public function create()
     {
-        return view('appoinments.create');
+        return view('appointments.create');
     }
 
     /**
@@ -103,12 +104,17 @@ class AppointmentController extends Controller
         if($request->ajax())
         {
             $date = $request->date;
-            $appointment_times = DB::collection('appointments')
-                ->select('time')
-                ->where('date', $date)
-                ->get();
+            $appointments = Appointment::all()->where('date',$date);
+            $data = array();
+            foreach($appointments as $appointment) {
+                $data[] = array(
+                    "appointment"=> $appointment,
+                    "user"=> $appointment->user->name
+                );
+            }
                 
-            return response()->json($appointment_times);
+            // print_r(json_encode($data));
+            return response()->json($data);
         }
     }
 }
