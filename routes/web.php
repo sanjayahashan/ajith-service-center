@@ -25,3 +25,5 @@ Route::get('/showroom', 'PageController@showroom')->name('showroom');
 
 Route::resource('appointments', 'AppointmentController');
 Route::post('appointments/timeslots', 'AppointmentController@displayTimeSlots')->name('appointments.times');
+
+Route::get('/admin', 'HomeController@admin');
