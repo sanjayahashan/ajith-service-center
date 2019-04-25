@@ -93,4 +93,9 @@ class AdminController extends Controller
     {
         //
     }
+
+    public function appointments()
+    {
+        return view('appointments.index');
+    }
 }
