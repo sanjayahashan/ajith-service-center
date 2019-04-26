@@ -22,12 +22,21 @@ Route::get('/about', 'PageController@about')->name('about');
 Route::get('/contact', 'PageController@contact')->name('contact');
 Route::get('/showroom', 'PageController@showroom')->name('showroom');
 
-
-Route::resource('appointments', 'AppointmentController');
+// Appointment Routing
+Route::resource('appointments', 'AppointmentController')->except([
+    'index'
+]);
 Route::post('appointments/timeslots', 'AppointmentController@displayTimeSlots')->name('appointments.times');
 
-Route::name('admin.')->group(function () {
-        Route::get('/admin', 'AdminController@index')->name('dashboard');
-        Route::get('/appointments', 'AdminController@appointments')->name('appointments');
+//Vehicles Routing
+Route::resource('vehicles', 'VehicleController')->only([
+    'index'
+]);
 
+Route::group(['middleware' => ['admin']], function () {
+    Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
+    Route::get('/appointments', 'AppointmentController@index')->name('appointments.index');
+    Route::resource('vehicles', 'VehicleController')->except([
+        'index'
+    ]);
 });

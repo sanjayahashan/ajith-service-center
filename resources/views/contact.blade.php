@@ -3,7 +3,7 @@
 @section('content')
 
 <!--Page Title-->
-<section class="page-title" style="background-image:url(images/background/8.jpg);">
+<section class="page-title" style="background-image:url({{ asset('images/background/8.jpg') }});">
         <div class="auto-container">
             <div class="inner-container clearfix">            
                 <h1>Contact us</h1>

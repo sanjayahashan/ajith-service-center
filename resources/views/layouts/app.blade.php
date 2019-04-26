@@ -14,11 +14,9 @@
 <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
-integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
-crossorigin="anonymous">
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
-integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" 
-crossorigin="anonymous">
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 </script>
 <!--Color Switcher Mockup-->
 <link href="{{ asset('css/color-switcher-design.css') }}" rel="stylesheet">
@@ -164,7 +162,7 @@ crossorigin="anonymous">
                 <div class="auto-container clearfix">
                     <!--Logo-->
                     <div class="logo pull-left">
-                        <a href="index-2.html" class="img-responsive"><img src="images/logo-small.png" alt="" title=""></a>
+                        <a href="index-2.html" class="img-responsive"><img src="{{ asset('images/logo-small.png') }}" alt="" title=""></a>
                     </div>
                         
                     <!--Right Col-->
@@ -236,7 +234,7 @@ crossorigin="anonymous">
         </div>
 
         <!-- Main Footer -->
-        <footer class="main-footer" style="background-image: url(images/background/4.jpg);">
+        <footer class="main-footer" style="background-image: url({{ asset('images/background/4.jpg') }});">
             <div class="auto-container">
             
                 <!--Widgets Section-->
@@ -247,7 +245,7 @@ crossorigin="anonymous">
                             <div class="footer-widget about-widget">
                                 <div class="footer-logo">
                                     <figure>
-                                        <a href="index-2.html"><img src="images/footer-logo.png" alt=""></a>
+                                        <a href="index-2.html"><img src="{{ asset('images/footer-logo.png') }}" alt=""></a>
                                     </figure>
                                 </div>
                                 <div class="widget-content">
@@ -289,27 +287,27 @@ crossorigin="anonymous">
                                 <div class="widget-content">
                                     <div class="outer clearfix">
                                         <figure class="image">
-                                            <a href="images/resource/feature-1.jpg" class="lightbox-image" title="Image Title Here"><img src="images/resource/insta-1.jpg" alt=""></a>
+                                            <a href="{{ asset('images/resource/feature-1.jpg') }}" class="lightbox-image" title="Image Title Here"><img src="{{ asset('images/resource/insta-1.jpg') }}" alt=""></a>
                                         </figure>
 
                                         <figure class="image">
-                                            <a href="images/resource/feature-2.jpg" class="lightbox-image" title="Image Title Here"><img src="images/resource/insta-2.jpg" alt=""></a>
+                                            <a href="{{ asset('images/resource/feature-2.jpg') }}" class="lightbox-image" title="Image Title Here"><img src="{{ asset('images/resource/insta-2.jpg') }}" alt=""></a>
                                         </figure>
 
                                         <figure class="image">
-                                            <a href="images/resource/feature-3.jpg" class="lightbox-image" title="Image Title Here"><img src="images/resource/insta-3.jpg" alt=""></a>
+                                            <a href="{{ asset('images/resource/feature-3.jpg') }}" class="lightbox-image" title="Image Title Here"><img src="{{ asset('images/resource/insta-3.jpg') }}" alt=""></a>
                                         </figure>
 
                                         <figure class="image">
-                                            <a href="images/resource/feature-4.jpg" class="lightbox-image" title="Image Title Here"><img src="images/resource/insta-4.jpg" alt=""></a>
+                                            <a href="{{ asset('images/resource/feature-4.jpg') }}" class="lightbox-image" title="Image Title Here"><img src="{{ asset('images/resource/insta-4.jpg') }}" alt=""></a>
                                         </figure>
 
                                         <figure class="image">
-                                            <a href="images/resource/news-1.jpg" class="lightbox-image" title="Image Title Here"><img src="images/resource/insta-5.jpg" alt=""></a>
+                                            <a href="{{ asset('images/resource/news-1.jpg') }}" class="lightbox-image" title="Image Title Here"><img src="{{ asset('images/resource/insta-5.jpg') }}" alt=""></a>
                                         </figure>
 
                                         <figure class="image">
-                                            <a href="images/resource/news-2.jpg" class="lightbox-image" title="Image Title Here"><img src="images/resource/insta-6.jpg" alt=""></a>
+                                            <a href="{{ asset('images/resource/news-2.jpg') }}" class="lightbox-image" title="Image Title Here"><img src="{{ asset('images/resource/insta-6.jpg') }}" alt=""></a>
                                         </figure>
                                     </div>
                                 </div>       
@@ -385,9 +383,9 @@ crossorigin="anonymous">
     <script src="{{ asset('js/script.js') }}"></script>
     <!--Google Map APi Key-->
     <script src="http://maps.google.com/maps/api/js?key=AIzaSyBKS14AnP3HCIVlUpPKtGp7CbYuMtcXE2o"></script>
-    <script src="js/map-script.js"></script>
+    <script src="{{ asset('js/map-script.js') }}"></script>
     <!--End Google Map APi-->
-    <script src="js/color-settings.js"></script>
+    <script src="{{ asset('js/color-settings.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     @yield('scripts')
 

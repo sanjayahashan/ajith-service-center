@@ -2,17 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\File;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Vehicle;
 
-class AdminController extends Controller
+class VehicleController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('admin');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +16,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        $vehicles = Vehicle::all();
+        
+        return view('vehicles.index')->with('vehicles', $vehicles);
     }
 
     /**
@@ -30,7 +28,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('vehicles.create');
     }
 
     /**
@@ -41,7 +39,22 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $vehicle = new Vehicle();
+        $vehicle->brand = $request->brand;
+        $vehicle->model = $request->model;
+        $vehicle->engine = $request->engine;
+        $vehicle->price = $request->price;
+        $vehicle->description = $request->description;
+
+        //save the file
+        // $path = Storage::putFile('photos/vehicles', $request->file('image'));
+        $path = $request->file('image')->store('photos/vehicles');
+        // dd($path);
+
+        $vehicle->image = $path;
+        $vehicle->save();
+
+        return redirect()->route('vehicles.create');
     }
 
     /**
