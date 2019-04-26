@@ -71,9 +71,9 @@
 
                 <div class="column col-lg-6 col-md-12 col-sm-12">
                     <h2>Register</h2>
-                    <!-- Login Form -->
+                    <!-- Register Form -->
                     <div class="login-form">
-                        <!--Login Form-->
+                        <!--Register Form-->
                         <form method="post" action="{{route('register')}}">
                         @csrf
 
@@ -90,11 +90,22 @@
 
                             <div class="form-group">
                                 <label>Email Address</label>
-                                <input type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="Your Email " required>
+                                <input type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="janedoe@mail.com" required>
 
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+                            <div class="form-group">
+                            <label>{{ __('Phone Number') }}</label>
+                                <input id="phone" type="text" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" name="phone" value="{{ old('phone') }}" placeholder="07XXXXXXXX" required>
+
+                                @if ($errors->has('phone'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('phone') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -126,7 +137,7 @@
                             
                         </form>
                     </div>
-                    <!--End Login Form -->
+                    <!--End Register Form -->
                 </div>
             </div>
         </div>

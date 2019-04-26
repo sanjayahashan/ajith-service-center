@@ -25,3 +25,9 @@ Route::get('/showroom', 'PageController@showroom')->name('showroom');
 
 Route::resource('appointments', 'AppointmentController');
 Route::post('appointments/timeslots', 'AppointmentController@displayTimeSlots')->name('appointments.times');
+
+Route::name('admin.')->group(function () {
+        Route::get('/admin', 'AdminController@index')->name('dashboard');
+        Route::get('/appointments', 'AdminController@appointments')->name('appointments');
+
+});
