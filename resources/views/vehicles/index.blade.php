@@ -2,16 +2,25 @@
 
 @section('content')
 
+<!--Page Title-->
+<section class="page-title" style="background-image:url({{ asset('images/background/8.jpg') }});">
+        <div class="auto-container">
+            <div class="inner-container clearfix">            
+                <h1>Contact us</h1>
+            </div>
+        </div>
+    </section>
+
 <div class="auto-container">
 <div class="row">
 @foreach($vehicles as $vehicle)
     <div class="shop-item col-lg-4 col-md-6 col-sm-12">
         <div class="inner-box">
             <div class="image">
-                <img src="{{asset('images/resource/products/1.jpg')}}" alt="">
+                <img src="{{ asset('storage/photos/vehicles/' . $vehicle->thumb ) }}" alt="">
                 <div class="overlay-box">
                     <div class="icon-box">
-                        <a href="cart.html" class="cart-btn"><i class="fa fa-shopping-cart"></i> Add To Cart</a>
+                        <a href="{{ route('vehicles.show', ['id'=>$vehicle]) }}" class="cart-btn"><i class="fa fa-shopping-cart"></i> View Details</a>
                     </div>
                 </div>
             </div>
@@ -22,6 +31,14 @@
                 <div class="rating">
                     <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
                 </div>
+                @if(!Auth::guest() && Auth::user()->isAdmin)
+                    <a href="{{ route('vehicles.edit',['id'=>$vehicle->id]) }}" class="btn btn-warning">Edit</a>
+                    <form method="POST" action="{{ route('vehicles.destroy',['id'=>$vehicle]) }}">
+                        @csrf
+                        @method('DELETE')
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                    </form>
+                @endif
             </div>
         </div>
     </div>

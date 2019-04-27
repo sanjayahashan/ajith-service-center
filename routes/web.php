@@ -30,13 +30,13 @@ Route::post('appointments/timeslots', 'AppointmentController@displayTimeSlots')-
 
 //Vehicles Routing
 Route::resource('vehicles', 'VehicleController')->only([
-    'index'
+    'index', 'show'
 ]);
 
 Route::group(['middleware' => ['admin']], function () {
     Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
     Route::get('/appointments', 'AppointmentController@index')->name('appointments.index');
     Route::resource('vehicles', 'VehicleController')->except([
-        'index'
+        'index', 'show'
     ]);
 });

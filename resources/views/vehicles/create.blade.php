@@ -7,7 +7,13 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Add a Vehicle</h4>
-                <form class="form p-t-20" enctype="multipart/form-data" action="{{ route('vehicles.store') }}" method="POST">
+                @if(isset($vehicle->id))
+                    <form class="form p-t-20" enctype="multipart/form-data" action="{{ route('vehicles.update',['id'=>$vehicle]) }}" method="POST">
+                    @method('PUT')
+                    <input type="hidden" name="id" value="{{$vehicle->id}}">
+                @else
+                    <form class="form p-t-20" enctype="multipart/form-data" action="{{ route('vehicles.store') }}" method="POST">
+                @endif
                 @csrf
                     <div class="form-group">
                         <label for="brand">Brand Name</label>
@@ -17,7 +23,11 @@
                                     <i class="fas fa-motorcycle"></i>
                                 </span>
                             </div>
-                            <input type="text" class="form-control" id="brand" name="brand" placeholder="YAMAHA">
+                            <input type="text" class="form-control" id="brand" name="brand" placeholder="YAMAHA"
+                                @if(isset($vehicle->id))
+                                    value="{{ $vehicle->brand }}"
+                                @endif
+                            >
                         </div>
                     </div>
                     <div class="form-group">
@@ -28,7 +38,11 @@
                                     <i class="ti-email"></i>
                                 </span>
                             </div>
-                            <input type="text" class="form-control" id="model" name="model" placeholder="FZ 2019">
+                            <input type="text" class="form-control" id="model" name="model" placeholder="FZ 2019"
+                                @if(isset($vehicle->id))
+                                    value="{{ $vehicle->model }}"
+                                @endif
+                            >
                         </div>
                     </div>
                     <div class="form-group">
@@ -39,7 +53,11 @@
                                     <i class="mdi mdi-engine"></i>
                                 </span>
                             </div>
-                            <input type="text" class="form-control" id="engine" name="engine" placeholder="150CC">
+                            <input type="text" class="form-control" id="engine" name="engine" placeholder="150CC"
+                                @if(isset($vehicle->id))
+                                    value="{{ $vehicle->engine }}"
+                                @endif
+                            >
                         </div>
                     </div>
                     <div class="form-group">
@@ -50,7 +68,11 @@
                                     <i class="mdi mdi-engine"></i>
                                 </span>
                             </div>
-                            <input type="text" class="form-control" id="price" name="price" placeholder="249999">
+                            <input type="text" class="form-control" id="price" name="price" placeholder="249999"
+                                @if(isset($vehicle->id))
+                                    value="{{ $vehicle->price }}"
+                                @endif
+                            >
                         </div>
                     </div>
                     <div class="form-group">
@@ -61,7 +83,7 @@
                                 <i class="mdi mdi-library-books"></i>
                                 </span>
                             </div>
-                            <textarea class="form-control" name="description" id="description" rows="10"></textarea>
+                            <textarea class="form-control" name="description" id="description" rows="10">@if(isset($vehicle->id)){{$vehicle->description}} @endif</textarea>
                         </div>
                     </div>
                     <div class="form-group">

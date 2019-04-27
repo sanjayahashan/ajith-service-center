@@ -6,6 +6,7 @@ use Illuminate\Http\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Vehicle;
+use Image;
 
 class VehicleController extends Controller
 {
@@ -48,13 +49,30 @@ class VehicleController extends Controller
 
         //save the file
         // $path = Storage::putFile('photos/vehicles', $request->file('image'));
-        $path = $request->file('image')->store('photos/vehicles');
-        // dd($path);
+        // $path = $request->file('image')->store('public/photos/vehicles');
+        $image = $request->file('image');
+        
+        $thumb_name = $vehicle->brand . $vehicle->model . "thumb.jpg";
+        $image_name = $vehicle->brand . $vehicle->model . ".jpg";
+        
+        $vehicle->thumb = $thumb_name;
+        $vehicle->image = $image_name;
 
-        $vehicle->image = $path;
+        $this->storeImages($image, $thumb_name, $image_name);
+
+        // dd($thumb);
+
         $vehicle->save();
 
         return redirect()->route('vehicles.create');
+    }
+
+    public function storeImages($image, $thumb_name, $image_name)
+    {
+        $path = public_path('storage\photos\vehicles\\');
+
+        $thumb = Image::make($image)->resize(270,310)->save($path . $thumb_name);
+        $image = Image::make($image)->save($path . $image_name);
     }
 
     /**
@@ -65,7 +83,8 @@ class VehicleController extends Controller
      */
     public function show($id)
     {
-        //
+        $vehicle = Vehicle::find($id);
+        return view('vehicles.view')->with('vehicle', $vehicle);
     }
 
     /**
@@ -76,7 +95,8 @@ class VehicleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $vehicle = Vehicle::find($id);
+        return view('vehicles.create')->with('vehicle', $vehicle);
     }
 
     /**
@@ -88,7 +108,28 @@ class VehicleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $vehicle = Vehicle::find($id);
+        $vehicle->brand = $request->brand;
+        $vehicle->model = $request->model;
+        $vehicle->engine = $request->engine;
+        $vehicle->price = $request->price;
+        $vehicle->description = $request->description;
+
+        if($request->file('image'))
+        {
+            $image = $request->file('image');
+            $vehicle->image = $image;
+
+            $thumb_name = $vehicle->brand . $vehicle->model . "thumb.jpg";
+            $image_name = $vehicle->brand . $vehicle->model . ".jpg";
+            
+            $vehicle->thumb = $thumb_name;
+            $vehicle->image = $image_name;
+
+            $this->storeImages($image, $thumb_name, $image_name);
+        }
+
+        $vehicle->save();
     }
 
     /**
@@ -99,6 +140,11 @@ class VehicleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $vehicle = Vehicle::find($id);
+
+        $vehicle->delete();
+        Storage::delete(public_path('storage\photos\vehicles\\'.$vehicle->thumb), public_path('storage\photos\vehicles\\' . $vehicle->image));
+
+        return redirect()->route('vehicles.index');
     }
 }
