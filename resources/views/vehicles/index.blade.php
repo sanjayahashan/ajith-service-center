@@ -45,4 +45,7 @@
 @endforeach
 </div>
 </div>
+
+@include('ads.index', ['ads' => $ads])
+
 @endsection

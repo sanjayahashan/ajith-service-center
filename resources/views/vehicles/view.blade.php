@@ -8,17 +8,13 @@
             <div class="upper-box">
                 <div class="row clearfix">
                     <div class="image-column col-lg-8 col-md-12 col-sm-12">
-                       <div class="image-box"><img src="{{ asset('public/storage/photos/vehicles/' . $vehicle->thumb ) }}}" alt="{{$vehicle->model}}"></div>
+                       <div class="image-box"><img src="{{ asset('/storage/photos/vehicles/' . $vehicle->image ) }}" alt="{{$vehicle->model}}"></div>
                     </div>
                     <div class="price-column col-lg-4 col-md-12 col-sm-12">
                         <h2>{{$vehicle->brand}} - {{$vehicle->model}}</h2>
                         <ul class="price-list">
-                            <li>Axle <span>$149.95 Each</span></li>
-                            <li>Front Brakes Repair <span>$49.95</span></li>
-                            <li>Rear Brakes Repair <span>$59.95</span></li>
-                            <li>Rear Brake Shoes <span>$65.25</span></li>
-                            <li>Starters / Alternators <span>$225.95 Plus Parts</span></li>
-                            <li>Blelts / Hoses <span> $65.25</span></li>
+                            <li>Engine Capacity <span>{{$vehicle->engine}} CC</span></li>
+                            <li>Engine Capacity <span>{{$vehicle->price}} LKR</span></li>
                         </ul>               
                     </div>
                 </div>
@@ -59,5 +55,7 @@
             </div>
         </div>
     </section>
+
+@include('ads.index')
 
 @endsection

@@ -6,6 +6,7 @@ use Illuminate\Http\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Vehicle;
+use App\Ad;
 use Image;
 
 class VehicleController extends Controller
@@ -18,8 +19,9 @@ class VehicleController extends Controller
     public function index()
     {
         $vehicles = Vehicle::all();
+        $ads = Ad::all();
         
-        return view('vehicles.index')->with('vehicles', $vehicles);
+        return view('vehicles.index')->with(['vehicles' => $vehicles, 'ads' => $ads]);
     }
 
     /**
@@ -30,6 +32,7 @@ class VehicleController extends Controller
     public function create()
     {
         return view('vehicles.create');
+
     }
 
     /**
@@ -84,7 +87,8 @@ class VehicleController extends Controller
     public function show($id)
     {
         $vehicle = Vehicle::find($id);
-        return view('vehicles.view')->with('vehicle', $vehicle);
+        $ads = Ad::all();
+        return view('vehicles.view')->with(['vehicle' => $vehicle, 'ads' => $ads]);
     }
 
     /**
@@ -96,7 +100,9 @@ class VehicleController extends Controller
     public function edit($id)
     {
         $vehicle = Vehicle::find($id);
-        return view('vehicles.create')->with('vehicle', $vehicle);
+        $ads = Ad::all();
+
+        return view('vehicles.create')->with(['vehicle' => $vehicle, 'ads' => $ads]);
     }
 
     /**
@@ -143,7 +149,7 @@ class VehicleController extends Controller
         $vehicle = Vehicle::find($id);
 
         $vehicle->delete();
-        Storage::delete(public_path('storage\photos\vehicles\\'.$vehicle->thumb), public_path('storage\photos\vehicles\\' . $vehicle->image));
+        Storage::delete(['photos\vehicles\\'.$vehicle->thumb, 'photos\vehicles\\'.$vehicle->image]);
 
         return redirect()->route('vehicles.index');
     }

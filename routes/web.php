@@ -20,7 +20,7 @@ Auth::routes();
 Route::get('/home1', 'HomeController@index')->name('home1');
 Route::get('/about', 'PageController@about')->name('about');
 Route::get('/contact', 'PageController@contact')->name('contact');
-Route::get('/showroom', 'PageController@showroom')->name('showroom');
+Route::get('/showroom', 'VehicleController@index')->name('showroom');
 
 // Appointment Routing
 Route::resource('appointments', 'AppointmentController')->except([
@@ -40,3 +40,6 @@ Route::group(['middleware' => ['admin']], function () {
         'index', 'show'
     ]);
 });
+
+//ad routing
+Route::resource('ads', 'AdController');;
