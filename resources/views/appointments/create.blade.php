@@ -17,7 +17,7 @@
         <div class="auto-container">
             <div class="sec-title">
                 <h2>Make an <span>Appointment</span></h2>
-                <p>We are one of the leading auto repair shops serving customers in Tucson. All mechanic services<br> are performed by highly qualified mechanics.</p>
+                <p>We are one of the leading bike repair shops serving customers in Sri Lanka. All mechanic services<br> are performed by highly qualified mechanics.</p>
             </div>
 
             <!-- Service form-->
@@ -46,107 +46,52 @@
                     </div>
 
                     <div class="services-needed">
-                        <div class="title"><h3>Select Services Needed</h3></div>
+                        <div class="title"><h3>Our Services</h3></div>
                         <div class="row clearfix">
-                            <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            
+                            <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                 <div class="check-box">
-                                    <input type="checkbox" name="shipping-option" id="service-1"> 
-                                    <label for="service-1">Air Conditioning </label>
-                                </div>
-                            </div>
-
-                            <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                <div class="check-box">
-                                    <input type="checkbox" name="shipping-option" id="service-2"> 
+                                    <input type="checkbox" name="shipping-option" id="service-2" checked disabled> 
                                     <label for="service-2">Brakes Repair </label>
                                 </div>
                             </div>
 
-                            <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                 <div class="check-box">
-                                    <input type="checkbox" name="shipping-option" id="service-3"> 
+                                    <input type="checkbox" name="shipping-option" id="service-3" checked disabled> 
                                     <label for="service-3">Engine Diagnostic</label>
                                 </div>
                             </div>
 
-                            <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                 <div class="check-box">
-                                    <input type="checkbox" name="shipping-option" id="service-4"> 
+                                    <input type="checkbox" name="shipping-option" id="service-4" checked disabled> 
                                     <label for="service-4">Heating & Cooling</label>
                                 </div>
                             </div>
 
-                            <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                 <div class="check-box">
-                                    <input type="checkbox" name="shipping-option" id="service-5"> 
+                                    <input type="checkbox" name="shipping-option" id="service-5" checked disabled> 
                                     <label for="service-5">Oil, Lube</label>
                                 </div>
                             </div>
 
-                            <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                 <div class="check-box">
-                                    <input type="checkbox" name="shipping-option" id="service-6"> 
-                                    <label for="service-6">Steering & Suspension</label>
-                                </div>
-                            </div>
-
-                            <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                <div class="check-box">
-                                    <input type="checkbox" name="shipping-option" id="service-7"> 
+                                    <input type="checkbox" name="shipping-option" id="service-7" checked disabled> 
                                     <label for="service-7">Transmission Repair</label>
                                 </div>
                             </div>
 
-                            <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                 <div class="check-box">
-                                    <input type="checkbox" name="shipping-option" id="service-8"> 
-                                    <label for="service-8">Battery Service</label>
-                                </div>
-                            </div>
-
-                            <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                <div class="check-box">
-                                    <input type="checkbox" name="shipping-option" id="service-9"> 
-                                    <label for="service-9">Exhaust Systems</label>
-                                </div>
-                            </div>
-
-                            <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                <div class="check-box">
-                                    <input type="checkbox" name="shipping-option" id="service-10"> 
-                                    <label for="service-10">Emissions</label>
-                                </div>
-                            </div>
-
-                            <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                <div class="check-box">
-                                    <input type="checkbox" name="shipping-option" id="service-11"> 
-                                    <label for="service-11">Pvt Maintenance</label>
-                                </div>
-                            </div>
-
-                            <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                <div class="check-box">
-                                    <input type="checkbox" name="shipping-option" id="service-12"> 
+                                    <input type="checkbox" name="shipping-option" id="service-12" checked disabled> 
                                     <label for="service-12">Tire Pressure</label>
                                 </div>
                             </div>
 
-                            <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                <div class="check-box">
-                                    <input type="checkbox" name="shipping-option" id="service-13"> 
-                                    <label for="service-13">Tire Service</label>
-                                </div>
-                            </div>
-
-                            <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                <div class="check-box">
-                                    <input type="checkbox" name="shipping-option" id="service-14"> 
-                                    <label for="service-14">Other</label>
-                                </div>
-                            </div> 
-
-                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <button class="theme-btn btn-style-one" type="submit" name="submit-form">Reserve Appointment</button>
                             </div>
                         </div>
