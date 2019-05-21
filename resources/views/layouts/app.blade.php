@@ -84,6 +84,7 @@
 <script src="{{ asset('js/jquery.js') }}"></script>
 <script src="{{ asset('js/popper.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/jquery-ui.js') }}"></script>
 <!--Revolution Slider-->
 <script src="{{ asset('plugins/revolution/js/jquery.themepunch.revolution.min.js') }}"></script>
 <script src="{{ asset('plugins/revolution/js/jquery.themepunch.tools.min.js') }}"></script>

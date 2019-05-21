@@ -258,8 +258,8 @@
             <div class="row clearfix">
                 <!-- Content Column -->
                 <div class="content-column col-lg-6 col-md-12 col-sm-12">
-                    <h2>Welcome to Autowork</h2>
-                    <h4>Repair and Car Service</h4>
+                    <h2>Welcome to Ajith Service Centre</h2>
+                    <h4>Authorized YAMAHA Bike Services</h4>
                     <div class="primary-text">We offer a wide range of hydraulic cartridge valves, customized hydraulic integrated manifolds and valves for hydraulic breaking systems</div>
                     <div class="text">We work with clients big and small across a range of sectors and we utilise all forms of media to get your name out there in a way that’s right for you. We have a number of different teams within our agency that specialise in different areas of business so you can be sure that you won’t receive a generic service and although we can’t boast years and years of service we can ensure you that is a good thing in this industry</div>
                     <ul class="list-style-one clearfix">
