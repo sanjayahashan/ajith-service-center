@@ -4,6 +4,8 @@
 <!-- Mirrored from expert-themes.com/html/motor-expert/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 29 Mar 2019 09:52:18 GMT -->
 <head>
 <meta charset="utf-8">
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
 <title>Motor Expert - Auto Repair & Service HTML Template | Home Page One</title>
 
 <!-- Stylesheets -->
@@ -18,7 +20,7 @@
 <link href="{{ asset('css/color-switcher-design.css') }}" rel="stylesheet">
 
 <!--Color Themes-->
-<link id="theme-color-file" href="{{ asset('css/color-themes/default-theme.css') }}" rel="stylesheet">
+<link id="theme-color-file" href="{{ asset('css/color-themes/green-theme.css') }}" rel="stylesheet">
 
 <!--Favicon-->
 <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon">
@@ -52,34 +54,7 @@
 <!--Scroll to top-->
 <div class="scroll-to-top scroll-to-target" data-target="html"><span class="icon fa fa-angle-double-up"></span></div>
 
-<!-- Color Palate / Color Switcher -->
-<div class="color-palate">
-    <div class="color-trigger">
-        <i class="fa fa-cog"></i>
-    </div>
-    <div class="color-palate-head">
-        <h6>Choose Your Color</h6>
-    </div>
-    <div class="various-color clearfix">
-        <div class="colors-list">
-            <span class="palate default-color active" data-theme-file="css/color-themes/default-theme.css"></span>
-            <span class="palate green-color" data-theme-file="css/color-themes/green-theme.css"></span>
-            <span class="palate yellow-color" data-theme-file="css/color-themes/blue-theme.css"></span>
-            <span class="palate orange-color" data-theme-file="css/color-themes/orange-theme.css"></span>
-            <span class="palate purple-color" data-theme-file="css/color-themes/purple-theme.css"></span>
-            <span class="palate teal-color" data-theme-file="css/color-themes/teal-theme.css"></span>
-            <span class="palate brown-color" data-theme-file="css/color-themes/brown-theme.css"></span>
-            <span class="palate redd-color" data-theme-file="css/color-themes/redd-color.css"></span>
-        </div>
-    </div>
-    
-    <a href="#" class="purchase-btn">Purchase now $15</a>
-    
-    <div class="palate-foo">
-        <span>You will find much more options for colors and styling in admin panel. This color picker is used only for demonstation purposes.</span>
-    </div>
 
-</div>
 
 <script src="{{ asset('js/jquery.js') }}"></script>
 <script src="{{ asset('js/popper.min.js') }}"></script>

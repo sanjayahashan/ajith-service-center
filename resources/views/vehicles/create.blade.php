@@ -60,6 +60,87 @@
                             >
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        <label for="power">Max Power</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="mdi mdi-engine"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" id="power" name="power" placeholder="13.00 bhp @8000 rpm"
+                                @if(isset($vehicle->id))
+                                    value="{{ $vehicle->power }}"
+                                @endif
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="milage">Fuel Consumption</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="mdi mdi-engine"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" id="milage" name="milage" placeholder="45Kmpl"
+                                @if(isset($vehicle->id))
+                                    value="{{ $vehicle->milage }}"
+                                @endif
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="smec">Starting Mechanism</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="mdi mdi-engine"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" id="smec" name="smec" placeholder="Self Start"
+                                @if(isset($vehicle->id))
+                                    value="{{ $vehicle->smec }}"
+                                @endif
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ignition">Ignition</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="mdi mdi-engine"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" id="ignition" name="ignition" placeholder="Fuel Injection"
+                                @if(isset($vehicle->id))
+                                    value="{{ $vehicle->ignition }}"
+                                @endif
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="transmission">Transmission</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="mdi mdi-engine"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" id="transmission" name="transmission" placeholder="5 Speeds Manual "
+                                @if(isset($vehicle->id))
+                                    value="{{ $vehicle->engine }}"
+                                @endif
+                            >
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <label for="price">Price</label>
                         <div class="input-group">

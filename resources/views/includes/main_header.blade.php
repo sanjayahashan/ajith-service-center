@@ -31,7 +31,7 @@
         <div class="auto-container">
             <div class="clearfix">
                 <div class="pull-left logo-outer">
-                    <div class="logo"><a href="{{route('home1')}}"><img src="{{ asset('images/logo.png') }}" alt=""
+                    <div class="logo"><a href="/"><img src="{{ asset('images/logo.png') }}" alt=""
                                 title=""></a></div>
                 </div>
                 <div class="pull-right upper-right clearfix">
@@ -87,7 +87,7 @@
                     <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
                         <ul class="navigation clearfix">
 
-                            <li><a href="{{ route('home1') }}">Home</a>
+                            <li><a href="/">Home</a>
 
                             </li>
                             <li><a href="{{ route('showroom') }}">Showroom</a>
@@ -163,7 +163,7 @@
         <div class="auto-container clearfix">
             <!--Logo-->
             <div class="logo pull-left">
-                <a href="index-2.html" class="img-responsive"><img src="images/logo-small.png" alt="" title=""></a>
+                <a href="index-2.html" class="img-responsive"><img src="{{ asset('images/logo-small.png') }}" alt="" title=""></a>
             </div>
 
             <!--Right Col-->
@@ -182,7 +182,7 @@
 
                     <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent1">
                         <ul class="navigation clearfix">
-                            <li><a href="{{ route('home1') }}">Home</a>
+                            <li><a href="{{ route('home') }}">Home</a>
 
                             </li>
                             <li><a href="{{ route('showroom') }}">Showroom</a>

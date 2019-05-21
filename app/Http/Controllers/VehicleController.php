@@ -47,6 +47,11 @@ class VehicleController extends Controller
         $vehicle->brand = $request->brand;
         $vehicle->model = $request->model;
         $vehicle->engine = $request->engine;
+        $vehicle->power = $request->power;
+        $vehicle->milage = $request->milage;
+        $vehicle->smec = $request->smec;
+        $vehicle->ignition = $request->ignition;
+        $vehicle->transmission = $request->transmission;
         $vehicle->price = $request->price;
         $vehicle->description = $request->description;
 
@@ -118,6 +123,11 @@ class VehicleController extends Controller
         $vehicle->brand = $request->brand;
         $vehicle->model = $request->model;
         $vehicle->engine = $request->engine;
+        $vehicle->power = $request->power;
+        $vehicle->milage = $request->milage;
+        $vehicle->smec = $request->smec;
+        $vehicle->ignition = $request->ignition;
+        $vehicle->transmission = $request->transmission;
         $vehicle->price = $request->price;
         $vehicle->description = $request->description;
 
