@@ -127,4 +127,11 @@ class AdController extends Controller
 
         return redirect()->route('ads.index');
     }
+
+    public function manage()
+    {
+        $ads = Ad::all();
+
+        return view('ads.manage')->with('ads', $ads);
+    }
 }

@@ -39,7 +39,8 @@ Route::group(['middleware' => ['admin']], function () {
     Route::resource('vehicles', 'VehicleController')->except([
         'index', 'show'
     ]);
+    Route::get('/manageads', 'AdController@manage')->name('ads.manage');
 });
 
 //ad routing
-Route::resource('ads', 'AdController');;
+Route::resource('ads', 'AdController');

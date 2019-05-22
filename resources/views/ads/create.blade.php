@@ -13,7 +13,7 @@
         @csrf
         <div class="form-group">
             <label for="description">Description</label>
-            <textarea name="description" id="" cols="30" rows="5" class="form-control"></textarea>
+            <textarea name="description" id="" cols="30" rows="5" class="form-control">@if(isset($ad->id)){{ $ad->description }}@endif</textarea>
         </div>
         <!-- <div class="form-group">
     <label for="company">Company Name</label>
