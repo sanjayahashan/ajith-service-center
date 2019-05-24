@@ -40,6 +40,14 @@
         </div>
 
         <div class="form-group">
+            <label for="time">No. of Days</label>
+            <input type="text" name="time" class="form-control" id="time" placeholder="" @if(isset($ad->time))
+            value="{{ $ad->time }}"
+            @endif
+            >
+        </div>
+
+        <div class="form-group">
             <label for="image">Image</label>
             <input type="file" name="image" class="form-control" id="image">
         </div>
