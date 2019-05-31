@@ -119,7 +119,6 @@
 @endsection
 
 @section('scripts')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <script>
     $(document).ready(function () {
@@ -144,13 +143,13 @@
                     if(data.length>0)
                     {
                         data.forEach(function(value) {
-                            if(timeslots.includes(value.time))
+                            if(timeslots.includes(value.appointment.time))
                             {
-                                var i = timeslots.indexOf(value.time);
+                                var i = timeslots.indexOf(value.appointment.time);
                                 timeslots.splice(i, 1);
                             }
                         });
-                        console.log(timeslots);
+                        console.log(data);
                         var $dropdown = $('#time');
                     }
                 },
@@ -161,7 +160,7 @@
                         opt.value = i;
                         opt.innerHTML = i;
                         $('#time').append(opt);
-                        console.log(i);
+                        // console.log(i);
                     }
                 }
             });

@@ -86,6 +86,9 @@
 <script src="{{ asset('js/map-script.js') }}"></script>
 <!--End Google Map APi-->
 <script src="{{ asset('js/color-settings.js') }}"></script>
+
+@yield('scripts')
+
 </body>
 
 <!-- Mirrored from expert-themes.com/html/motor-expert/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 29 Mar 2019 09:52:18 GMT -->
