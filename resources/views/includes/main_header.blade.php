@@ -17,9 +17,7 @@
                         <li><a href="#"><span class="fab fa-pinterest"></span></a></li>
                         <li><a href="#"><span class="fab fa-dribbble"></span></a></li>
                     </ul>
-                    <div class="call-btn">
-                        <a href="appointment.html">Book Now</a>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -39,8 +37,8 @@
                     <div class="upper-column info-box">
                         <div class="icon-box"><span class="flaticon-home"></span></div>
                         <ul>
-                            <li><strong>13AH, San Francisco,</strong></li>
-                            <li>New york, United States</li>
+                            <li><strong>34/A Hokandara road</strong></li>
+                            <li>Thalawathugoda, Colombo</li>
                         </ul>
 
                     </div>
@@ -49,7 +47,7 @@
                         <div class="icon-box"><span class="flaticon-mail-1"></span></div>
                         <ul>
                             <li><strong>Send your mail at</strong></li>
-                            <li><a href="#">Construct@support.com</a></li>
+                            <li><a href="#">Ajithmotors@gmail.com</a></li>
                         </ul>
                     </div>
 
