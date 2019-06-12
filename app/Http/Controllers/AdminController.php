@@ -22,6 +22,22 @@ class AdminController extends Controller
     {
         return view('admin.dashboard');
     }
+    public function ad()
+    {
+        return view('admin.ad');
+    }
+    public function msg()
+    {
+        return view('admin.msg');
+    }
+    // public function shw()
+    // {
+    //     return view('vehicles.create');
+    // }
+    public function adweb()
+    {
+        return view('admin.adweb');
+    }
 
     /**
      * Show the form for creating a new resource.

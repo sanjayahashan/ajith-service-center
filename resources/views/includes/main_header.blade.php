@@ -6,7 +6,7 @@
             <div class="inner-container clearfix">
                 <div class="top-left">
                     <ul class="clearfix">
-                        <li>Welcome to Our Auto Work Repair Service</li>
+                        <li>Welcome to Ajith motors</li>
                     </ul>
                 </div>
                 <div class="top-right clearfix">

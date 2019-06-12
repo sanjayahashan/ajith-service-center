@@ -29,9 +29,9 @@ class VehicleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('vehicles.create');
+     public function create()
+     {
+         return view('vehicles.create');
 
     }
 

@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<title>Motor Expert - Auto Repair & Service HTML Template | Home Page One</title>
+<title>Ajith motors</title>
 
 <!-- Stylesheets -->
 <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
