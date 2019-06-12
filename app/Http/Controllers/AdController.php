@@ -44,6 +44,7 @@ class AdController extends Controller
         // $ad->company = $request->company;
         // $ad->agent = $request->agent;
         $ad->tel = $request->tel;
+        $ad->time = $request->time;
         $ad->save();
         
         //save image
@@ -95,6 +96,7 @@ class AdController extends Controller
         $ad = Ad::find($id);
         $ad->description = $request->description;
         $ad->tel = $request->tel;
+        $ad->time = $request->time;
         // $ad->save();
         
         //save image
@@ -126,5 +128,12 @@ class AdController extends Controller
         $ad->delete();
 
         return redirect()->route('ads.index');
+    }
+
+    public function manage()
+    {
+        $ads = Ad::all();
+
+        return view('ads.manage')->with('ads', $ads);
     }
 }

@@ -13,7 +13,7 @@
         @csrf
         <div class="form-group">
             <label for="description">Description</label>
-            <textarea name="description" id="" cols="30" rows="5" class="form-control"></textarea>
+            <textarea name="description" id="" cols="30" rows="5" class="form-control">@if(isset($ad->id)){{ $ad->description }}@endif</textarea>
         </div>
         <!-- <div class="form-group">
     <label for="company">Company Name</label>
@@ -35,6 +35,14 @@
             <label for="tel">Contact No.</label>
             <input type="text" name="tel" class="form-control" id="tel" placeholder="071XXXXXXX" @if(isset($ad->id))
             value="{{ $ad->tel }}"
+            @endif
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="time">No. of Days</label>
+            <input type="text" name="time" class="form-control" id="time" placeholder="" @if(isset($ad->time))
+            value="{{ $ad->time }}"
             @endif
             >
         </div>
