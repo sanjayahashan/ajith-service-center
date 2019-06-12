@@ -61,9 +61,9 @@
                         <b>
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <img src="{{ asset('images/logo.png')}}" alt="homepage" class="dark-logo" />
+                            <img src="{{ asset('images/logo.png')}}" alt="homepage" class="dark-logo" style="width: 200px;"/>
                             <!-- Light Logo icon -->
-                            <img src="{{ asset('images/logo.png')}}" alt="homepage" class="light-logo" />
+                            <img src="{{ asset('images/logo.png')}}" alt="homepage" class="light-logo" style="width: 200px;"/>
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
@@ -363,7 +363,7 @@
                         <li> <a class="waves-effect waves-dark" href="{{route('admin.msg')}}" aria-expanded="false"><i class="mdi mdi-email"></i><span class="hide-menu">Messages</span></a>
                             
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="{{route('admin.ad')}}" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Advertiesments</span></a>
+                        <li> <a class="waves-effect waves-dark" href="{{route('ads.manage')}}" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Advertisements</span></a>
                             
                         </li>
 
