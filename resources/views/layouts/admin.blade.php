@@ -366,7 +366,9 @@
                         <li> <a class="waves-effect waves-dark" href="{{route('ads.manage')}}" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Advertisements</span></a>
                             
                         </li>
-
+                        <li> <a class="waves-effect waves-dark" href="{{route('appointments.index')}}" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Appointments</span></a>
+                            
+                        </li>
                         
                     </ul>
                 </nav>
