@@ -14,7 +14,7 @@
                         <h2>{{$vehicle->brand}} - {{$vehicle->model}}</h2>
                         <ul class="price-list">
                             <li>Engine Capacity <span>{{$vehicle->engine}} CC</span></li>
-                            <li>Max Power <span>{{$vehicle->power}} LKR</span></li>
+                            <li>Max Power <span>{{$vehicle->power}} CC</span></li>
                             <li>Fuel Consumption <span>{{$vehicle->milage}} kmpl</span></li>
                             <li>Starting Mechanism <span>{{$vehicle->smec}} </span></li>
                             <li>Ignition <span>{{$vehicle->ignition}}</span></li>
