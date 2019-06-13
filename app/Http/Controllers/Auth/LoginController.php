@@ -31,7 +31,7 @@ class LoginController extends Controller
     public function redirectTo()
     {
         if(!Auth::guest() && Auth::user()->isAdmin)
-            return '/admin';
+            return '/adweb';
         else
             return '/home';
     }

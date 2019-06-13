@@ -30,12 +30,12 @@ Route::post('appointments/timeslots', 'AppointmentController@displayTimeSlots')-
 
 
 Route::group(['middleware' => ['admin']], function () {
-    Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
+    Route::get('/adweb', 'AdminController@adweb')->name('admin.adweb');
     Route::get('/appointments', 'AppointmentController@index')->name('appointments.index');
     Route::resource('vehicles', 'VehicleController')->except([
         'index', 'show'
         ]);
-        Route::get('/adweb', 'AdminController@adweb')->name('admin.adweb');
+        //Route::get('/adweb', 'AdminController@adweb')->name('admin.adweb');
         Route::get('/ad', 'AdminController@ad')->name('admin.ad');
         Route::get('/msg', 'AdminController@msg')->name('admin.msg');
         //Route::get('/create', 'VehicleController@create')->name('vehicles.create');

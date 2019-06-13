@@ -102,7 +102,7 @@
                                 <ul>
                                 @if(Auth::user()->isAdmin)
                                     <li>
-                                        <a href="{{ route('admin.dashboard') }}">Admin Dashboard</a>
+                                        <a href="{{ route('admin.adweb') }}">Admin Dashboard</a>
                                     </li>
                                     @endif
                                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -175,7 +175,7 @@
                                 <ul>
                                     @if(Auth::user()->isAdmin)
                                     <li>
-                                        <a href="{{ route('admin.dashboard') }}">Admin Dashboard</a>
+                                        <a href="{{ route('admin.adweb') }}">Admin Dashboard</a>
                                     </li>
                                     @endif
                                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault();

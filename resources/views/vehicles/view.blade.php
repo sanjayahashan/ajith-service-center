@@ -32,32 +32,7 @@
             </div>
 
             <!-- Project Info -->
-             <div class="project-info">
-                <div class="row clearfix">
-                    <div class="column col-lg-6 col-md-6 col-sm-12">
-                        <div class="info"><span class="icon fa fa-user"></span><strong>Client :</strong> TransGas</div>
-                    </div>
-
-                    <div class="column col-lg-6 col-md-6 col-sm-12">
-                        <div class="info"><span class="icon fa fa-globe"></span><strong>Investors Website :</strong> <a href="index-2.html">www.clickhere.com</a></div>
-                    </div>
-
-                    <div class="column col-lg-6 col-md-6 col-sm-12">
-                        <div class="info"><span class="icon fa fa-calendar"></span><strong>Construction Date :</strong> October 2015</div>
-                    </div>
-
-                    <div class="column col-lg-6 col-md-6 col-sm-12">
-                        <div class="social-icons">
-                            <span class="follow">Share :</span>
-                            <a href="#"><span class="fab fa-facebook-f"></span></a>
-                            <a href="#"><span class="fab fa-twitter"></span></a>
-                            <a href="#"><span class="fab fa-google-plus-g"></span></a>
-                            <a href="#"><span class="fab fa-pinterest"></span></a>
-                            <a href="#"><span class="fab fa-dribbble"></span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+             
         </div>
     </section>
 
