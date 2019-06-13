@@ -351,7 +351,7 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="nav-small-cap">PERSONAL</li>
-                        <li> <a class="waves-effect waves-dark" href="{{route('admin.dashboard')}}" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard </span></a>
+            
                             
                         </li>
                         <li> <a class="waves-effect waves-dark" href="{{route('admin.adweb')}}" aria-expanded="false"><i class="mdi mdi-laptop-windows"></i><span class="hide-menu">Web content</span></a>

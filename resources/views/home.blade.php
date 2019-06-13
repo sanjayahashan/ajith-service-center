@@ -101,7 +101,7 @@
                 <!-- Image Column -->
                 <div class="image-column col-lg-6 col-md-12 col-sm-12">
                     <div class="image-box">
-                        <a href="about.html"><img src="images/resource/about-img.jpg" alt=""></a>
+                        <a href="about.html"><img src="images/resource/aj7.png" alt=""></a>
                     </div>
                     <div class="row clearfix">
                         <div class="column col-lg-6 col-md-6 col-sm-12">
