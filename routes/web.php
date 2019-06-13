@@ -28,21 +28,24 @@ Route::resource('appointments', 'AppointmentController')->except([
 ]);
 Route::post('appointments/timeslots', 'AppointmentController@displayTimeSlots')->name('appointments.times');
 
-//Vehicles Routing
-Route::resource('vehicles', 'VehicleController')->only([
-    'index', 'show'
-  ]);
 
 Route::group(['middleware' => ['admin']], function () {
     Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
     Route::get('/appointments', 'AppointmentController@index')->name('appointments.index');
     Route::resource('vehicles', 'VehicleController')->except([
-        'index', 'show']);
-
-    Route::get('/adweb', 'AdminController@adweb')->name('admin.adweb');
-    Route::get('/msg', 'AdminController@msg')->name('admin.msg');
-    //Route::get('/create', 'VehicleController@create')->name('vehicles.create');
-
-    //]);
-    Route::resource('ads', 'AdController@manage');
+        'index', 'show'
+        ]);
+        Route::get('/adweb', 'AdminController@adweb')->name('admin.adweb');
+        Route::get('/ad', 'AdminController@ad')->name('admin.ad');
+        Route::get('/msg', 'AdminController@msg')->name('admin.msg');
+        //Route::get('/create', 'VehicleController@create')->name('vehicles.create');
+        Route::get('/manageads', 'AdController@manage')->name('ads.manage');
     });
+    
+    //ad routing
+    Route::resource('ads', 'AdController');
+    
+    // Vehicles Routing
+    Route::resource('vehicles', 'VehicleController')->only([
+        'index', 'show'
+    ]);

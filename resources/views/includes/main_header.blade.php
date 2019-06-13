@@ -100,6 +100,11 @@
 
                             <li class="dropdown"><a href="#">{{ Auth::user()->name }}</a>
                                 <ul>
+                                @if(Auth::user()->isAdmin)
+                                    <li>
+                                        <a href="{{ route('admin.dashboard') }}">Admin Dashboard</a>
+                                    </li>
+                                    @endif
                                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}</a>
@@ -168,6 +173,11 @@
 
                             <li class="dropdown"><a href="#">{{ Auth::user()->name }}</a>
                                 <ul>
+                                    @if(Auth::user()->isAdmin)
+                                    <li>
+                                        <a href="{{ route('admin.dashboard') }}">Admin Dashboard</a>
+                                    </li>
+                                    @endif
                                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}</a>
