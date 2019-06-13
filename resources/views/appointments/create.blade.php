@@ -106,14 +106,7 @@
     <!--End Appointment Page-->
 
     <!-- Subscribe Section -->
-    <section class="subscribe-section">
-        <div class="auto-container">
-            <div class="inner-container clearfix">
-                <h3>Check out our repair service for your car and get a free clean</h3>
-                <a href="#" class="call-btn">Order Now</a>
-            </div>
-        </div>
-    </section>
+    
     <!-- End Subscribe Section -->
 
 @endsection
