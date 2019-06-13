@@ -3,10 +3,10 @@
 @section('content')
 
 <!--Page Title-->
-<section class="page-title" style="background-image:url({{ asset('images/background/8.jpg') }});">
+<section class="page-title" style="background-image:url({{ asset('images/background/a4.png') }});">
         <div class="auto-container">
             <div class="inner-container clearfix">            
-                <h1>Contact us</h1>
+                <h1>Available Motor Bikes</h1>
             </div>
         </div>
     </section>

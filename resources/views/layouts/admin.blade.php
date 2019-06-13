@@ -363,7 +363,7 @@
                         <li> <a class="waves-effect waves-dark" href="{{route('admin.msg')}}" aria-expanded="false"><i class="mdi mdi-email"></i><span class="hide-menu">Messages</span></a>
                             
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="{{route('admin.ad')}}" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Advertiesments</span></a>
+                        <li> <a class="waves-effect waves-dark" href="{{route('ads.manage')}}" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Advertiesments</span></a>
                             
                         </li>
 

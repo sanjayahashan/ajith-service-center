@@ -6,7 +6,7 @@
             <div class="inner-container clearfix">
                 <div class="top-left">
                     <ul class="clearfix">
-                        <li>Welcome to Ajith motors</li>
+                        <li><b>Welcome to Ajith motors</b></li>
                     </ul>
                 </div>
                 <div class="top-right clearfix">
@@ -37,19 +37,13 @@
                     <div class="upper-column info-box">
                         <div class="icon-box"><span class="flaticon-home"></span></div>
                         <ul>
-                            <li><strong>34/A Hokandara road</strong></li>
-                            <li>Thalawathugoda, Colombo</li>
+                        <li><strong>Service centre: </strong> 34/A Hokandara road,Thalawathugoda</li>
+                            <li><strong>Showroom Thalawathugoda :</strong> No 23,kottawa road, Thalawathugoda</li>
+                            <li><strong>Showroom malabe: </strong> No 418/1/c Athurugiriya road, Malabe</li>
                         </ul>
-
-                    </div>
+                        </div>
+                    
                     <!--Info Box-->
-                    <div class="upper-column info-box">
-                        <div class="icon-box"><span class="flaticon-mail-1"></span></div>
-                        <ul>
-                            <li><strong>Send your mail at</strong></li>
-                            <li><a href="#">Ajithmotors@gmail.com</a></li>
-                        </ul>
-                    </div>
 
                     <!--Info Box-->
                     <div class="upper-column info-box">
@@ -91,18 +85,16 @@
                             <li><a href="{{ route('showroom') }}">Showroom</a>
 
                             </li>
-                            <li class="dropdown"><a href="#">Service center</a> </li>
                             <li>
-                                <a href="{{ route('appointments.create') }}">Appointments</a>
+                                <a href="{{ route('appointments.create') }}">Service Appointments</a>
 
                             </li>
 
 
                             <li><a href="{{ route('contact') }}">Contact</a></li>
                             @guest
-                            <li><a href="{{ route('login') }}">{{ __('LOGIN') }}</a></li>
-                            @if (Route::has('register'))
-                            <li><a href="{{ route('register') }}">{{ __('REGISTER') }}</a></li>
+                            @if (Route::has('login'))
+                            <li><a href="{{ route('login') }}">LOGIN / REGISTER</a></li>
                             @endif
                             @else
 
@@ -155,24 +147,22 @@
 
                     <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent1">
                         <ul class="navigation clearfix">
-                            <li><a href="{{ route('home') }}">Home</a>
+                            <li><a href="{{ route('home') }}">HOME</a>
 
                             </li>
-                            <li><a href="{{ route('showroom') }}">Showroom</a>
+                            <li><a href="{{ route('showroom') }}">SHOWROOM</a>
 
                             </li>
-                            <li class="dropdown"><a href="#">Service center</a> </li>
                             <li>
-                                <a href="{{ route('appointments.create') }}">Appointments</a>
+                                <a href="{{ route('appointments.create') }}">SERVICE APPOINTMENTS</a>
 
                             </li>
 
 
-                            <li><a href="{{ route('contact') }}">Contact</a></li>
+                            <li><a href="{{ route('contact') }}">CONTACT</a></li>
                             @guest
+                            @if (Route::has('login'))
                             <li><a href="{{ route('login') }}">{{ __('LOGIN') }}</a></li>
-                            @if (Route::has('register'))
-                            <li><a href="{{ route('register') }}">{{ __('REGISTER') }}</a></li>
                             @endif
                             @else
 

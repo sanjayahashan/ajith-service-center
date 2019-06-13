@@ -5,7 +5,7 @@
             <div class="widgets-section">
                 <div class="row clearfix">
                     <!--Footer Column-->
-                    <div class="footer-column col-lg-3 col-md-6 col-sm-12">
+                    <div >
                         <div class="footer-widget about-widget">
                             <div class="footer-logo">
                                 <figure>
@@ -13,8 +13,11 @@
                                 </figure>
                             </div>
                             <div class="widget-content">
-                                <div class="text">How to pursue pleasure rationally thats encounter consequences that extremely painful. Nor again is there anyones who loves or pursues or ut desires obtains pain of itself, because.</div>
-                                <h4>Follow Us:</h4>
+                                <div class="text" ></div>
+                                <div class="babba"><b> Email us : ajithmotorsyamaha@gmail.com</b>
+                                <br>
+                                <b>Follow Us:</b>
+                                </div>
                                 <ul class="social-icon">
                                     <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                                     <li><a href="#"><i class="fab fa-twitter"></i></a></li>
@@ -26,78 +29,10 @@
                         </div>
                     </div>
                     
-                    <!--Footer Column-->
-                    <div class="footer-column col-lg-3 col-md-6 col-sm-12">
-                        <div class="footer-widget services-widget">
-                            <h2 class="widget-title">Our Services</h2>
-                            <div class="widget-content">
-                                <ul class="services-list">
-                                    <li><a href="#">Engine Diagnostic & Repair</a></li>
-                                    <li><a href="#">Maintanence Inspaection</a></li>
-                                    <li><a href="#">Electrical System Diagnostic</a></li>
-                                    <li><a href="#">Wheel Allignment & Installation</a></li>
-                                    <li><a href="#">Air Conditioner Service & Repair</a></li>
-                                </ul>
-                            </div>
-                        </div>  
-                    </div>                  
+                    
+                   
 
-                    <!--Footer Column-->
-                    <div class="footer-column col-lg-3 col-md-6 col-sm-12">
-                        <!--Footer Column-->
-                        <div class="footer-widget gallery-widget">
-                            <h2 class="widget-title">Instragram</h2>
-                             <!--Footer Column-->
-                            <div class="widget-content">
-                                <div class="outer clearfix">
-                                    <figure class="image">
-                                        <a href="images/resource/feature-1.jpg" class="lightbox-image" title="Image Title Here"><img src="{{ asset('images/resource/insta-1.jpg') }}" alt=""></a>
-                                    </figure>
-
-                                    <figure class="image">
-                                        <a href="images/resource/feature-2.jpg" class="lightbox-image" title="Image Title Here"><img src="{{ asset('images/resource/insta-2.jpg') }}" alt=""></a>
-                                    </figure>
-
-                                    <figure class="image">
-                                        <a href="images/resource/feature-3.jpg" class="lightbox-image" title="Image Title Here"><img src="{{ asset('images/resource/insta-3.jpg') }}" alt=""></a>
-                                    </figure>
-
-                                    <figure class="image">
-                                        <a href="images/resource/feature-4.jpg" class="lightbox-image" title="Image Title Here"><img src="{{ asset('images/resource/insta-4.jpg') }}" alt=""></a>
-                                    </figure>
-
-                                    <figure class="image">
-                                        <a href="images/resource/news-1.jpg" class="lightbox-image" title="Image Title Here"><img src="{{ asset('images/resource/insta-5.jpg') }}" alt=""></a>
-                                    </figure>
-
-                                    <figure class="image">
-                                        <a href="images/resource/news-2.jpg" class="lightbox-image" title="Image Title Here"><img src="{{ asset('images/resource/insta-6.jpg') }}" alt=""></a>
-                                    </figure>
-                                </div>
-                            </div>       
-                        </div>
-                    </div>
-
-
-                    <!--Footer Column-->
-                    <div class="footer-column col-lg-3 col-md-6 col-sm-12">
-                        <!--Footer Column-->
-                        <div class="footer-widget news-widget">
-                            <h2 class="widget-title">Latest News</h2>
-                             <!--Footer Column-->
-                            <div class="widget-content">
-                                <div class="post">
-                                    <h4><a href="#">Get Usefull Car Maintanence Tips From Our Expets</a></h4>
-                                    <span class="date"><i class="far fa-calendar-check"></i>Aug 21, 2015</span>
-                                </div>
-
-                                <div class="post">
-                                    <h4><a href="#">Get Usefull Car Maintanence Tips From Our Expets</a></h4>
-                                    <span class="date"><i class="far fa-calendar-check"></i>Aug 21, 2015</span>
-                                </div>
-                            </div>       
-                        </div>
-                    </div>
+                   
                 </div>
             </div>
         </div>
@@ -106,7 +41,7 @@
          <div class="footer-bottom">
             <div class="auto-container">
                 <div class="copyright-text">
-                    <p>Copyrights © 2018 All Rights Reserved. by <a href="#"> Expert Themes</a></p>
+                    <p>CopyRight@<a href="#">Ajith motors YAMAHA </a></p>
                 </div>
             </div>
         </div>
