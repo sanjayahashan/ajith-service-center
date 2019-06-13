@@ -29,10 +29,9 @@ class VehicleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-     public function create()
-     {
+    public function create()
+    {
          return view('vehicles.create');
-
     }
 
     /**
@@ -146,6 +145,7 @@ class VehicleController extends Controller
         }
 
         $vehicle->save();
+        return view('vehicles.edit')->with(['vehicle' => $vehicle]);
     }
 
     /**
