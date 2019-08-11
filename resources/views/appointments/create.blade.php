@@ -1,6 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+@if(Session::has('success'))
+<div class="row">
+    <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
+        <div id="charge-message" class="alert alert-success">
+            {{session::get('success')}}
+        </div>
+    </div>
+</div>
+@endif
 
 <!--Page Title-->
 <section class="page-title" style="background-image:url({{ asset('images/background/8.jpg') }});">
@@ -97,6 +106,8 @@
                         </div>
                     </div>
                 </form>
+                <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <a href="{{route('payment') }}" class="theme-btn btn-style-one" type="submit" name="submit-form">Reserve Appointment</a>
             </div><!--End Appointment Form-->
 
             
