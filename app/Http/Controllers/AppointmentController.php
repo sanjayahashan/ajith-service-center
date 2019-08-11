@@ -127,7 +127,7 @@ class AppointmentController extends Controller
         Charge::create([
             "amount" => 2.77,
             "currency" => "usd",
-            "source" => $request->input('stripeToken'), // obtained with Stripe.js
+            "source" => $request->stripeToken, // obtained with Stripe.js
             "description" => "Test charge"
             ]);
     }catch(\Exeption $e){

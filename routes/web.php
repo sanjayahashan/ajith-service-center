@@ -30,6 +30,7 @@ Route::resource('appointments', 'AppointmentController')->except([
 Route::get('appointment/payment','AppointmentController@getpayment')->name('payment');
 Route::post('/payment','AppointmentController@postcheckout')->name('checkout');
 Route::post('appointments/timeslots', 'AppointmentController@displayTimeSlots')->name('appointments.times');
+Route::match(['get', 'post'], '/botman', 'BotManController@handle');
 
 
 
