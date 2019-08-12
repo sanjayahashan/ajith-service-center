@@ -14,6 +14,7 @@
           <th scope="col">Timeslot</th>
           <th scope="col">Customer</th>
           <th scope="col">Customer Email</th>
+          <th scope="col">Customer Phone</th>
         </tr>
       </thead>
       <tbody id="tbody">
@@ -63,7 +64,7 @@
       success: function(data) {
         console.log(data);
         data.forEach(function(value) {
-          $('#tbody').append('<tr><td>' + value.appointment.time + '</td><td>' + value.appointment.user.name + '</td><td>' + value.appointment.user.email + '</td></tr>');
+          $('#tbody').append('<tr><td>' + value.appointment.time + '</td><td>' + value.appointment.user.name + '</td><td>' + value.appointment.user.email + '</td><td>' + value.appointment.user.phone + '</td></tr>');
         });
       }
     });

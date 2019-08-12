@@ -2,6 +2,7 @@
 
 @section('content')
 
+<a href="{{route('ads.create')}}" class="btn btn-primary">Add new</a>
 <table>
 <div class="card">
                             <div class="card-body">

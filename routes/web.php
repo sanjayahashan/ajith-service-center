@@ -27,6 +27,7 @@ Route::resource('appointments', 'AppointmentController')->except([
     'index'
 ]);
 Route::post('appointments/timeslots', 'AppointmentController@displayTimeSlots')->name('appointments.times');
+Route::post('appointments/count', 'AppointmentController@reserveSlots')->name('appointments.count');
 
 
 Route::group(['middleware' => ['admin']], function () {
@@ -40,6 +41,8 @@ Route::group(['middleware' => ['admin']], function () {
         Route::get('/msg', 'AdminController@msg')->name('admin.msg');
         //Route::get('/create', 'VehicleController@create')->name('vehicles.create');
         Route::get('/manageads', 'AdController@manage')->name('ads.manage');
+
+    Route::resource('serviceslots', 'ServiceSlotController');
     });
     
     //ad routing

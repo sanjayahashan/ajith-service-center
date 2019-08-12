@@ -28,9 +28,9 @@
                 <h3><a href="shop-single.html">{{$vehicle->brand}}</a></h3>
                 <h4>{{$vehicle->model}}</h4>
                 <span class="price">{{$vehicle->price}} LKR</span>
-                <div class="rating">
+                <!-- <div class="rating">
                     <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
-                </div>
+                </div> -->
                 @if(!Auth::guest() && Auth::user()->isAdmin)
                     <a href="{{ route('vehicles.edit',['id'=>$vehicle->id]) }}" class="btn btn-warning">Edit</a>
                     <form method="POST" action="{{ route('vehicles.destroy',['id'=>$vehicle]) }}">

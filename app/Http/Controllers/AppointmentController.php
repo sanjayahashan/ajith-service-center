@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 
 class AppointmentController extends Controller
 {
+    public $slots = 4;
+    
     public function __construct()
     {
         $this->middleware('auth');
@@ -47,11 +49,21 @@ class AppointmentController extends Controller
         $appointment->user_id = Auth::user()->_id;
         $appointment->time = $request->time;
         $appointment->date = $request->date;
+        $appointment->slot = $this->find_count($request)+1;
 
         // print_r(Auth::user()->_id);
         $appointment->save();
 
         return redirect()->route('appointments.create');
+    }
+
+    private function find_count($request) 
+    {
+        $count = Appointment::where([
+            ['date', '=', $request->date],
+            ['time', '=', $request->time],            
+        ])->count();
+        return $count;
     }
 
     /**
@@ -115,6 +127,44 @@ class AppointmentController extends Controller
                 
             // print_r(json_encode($data));
             return response()->json($data);
+        }
+    }
+
+    public function reserveSlots(Request $request)
+    {
+        if($request->ajax())
+        {
+            $appointmentGroups = Appointment::where([
+                ['date', '=', $request->date],
+            ])
+            ->get()
+            ->groupBy('time');
+
+            $data = array();
+            foreach($appointmentGroups as $time => $appointmentGroup) {
+                $data[$time] = array(
+                    "appointment"=> $appointmentGroup,
+                    "count"=> sizeOf($appointmentGroup)
+                );
+            }
+            $data += [
+                "max_count"=>$this->slots
+            ];
+                
+            // print_r(json_encode($appointments));
+            return response()->json($data);
+        }
+    }
+
+    public function _reserveSlots(Request $request) {
+        if($request->ajax()) {
+            // $branch = Branch::find($request->branch);
+            
+            $date = $request->date;
+            $appointments = Appointment::all()->where('date',$date);
+            $appointments_count = $appointments->count();
+
+            return $appointments_count;
         }
     }
 }

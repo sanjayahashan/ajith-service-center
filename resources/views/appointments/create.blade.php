@@ -121,50 +121,62 @@
 @section('scripts')
 
 <script>
-    $(document).ready(function () {
-        // console.log(timeslots);
-        $("#date").change(function(e) {
+
+    function populate() {
             var timeslots = ["9.00-9.45", "9.45-10.30", "10.30-11.15", "11.15-12.00", "12.00-12.45", "1.45-2.30", "2.30-3.15", "3.15-4.00", "4.00-4.45"];
-            e.preventDefault();
+            // e.preventDefault();
             $('#time').empty();
+            _populate(timeslots);
+
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
             $.ajax({
-                url: '{{ route('appointments.times') }}',
+                url: '{{ route('appointments.count') }}',
                 type: 'post',
                 data: {
                     date: $('#date').val(),
+                    time: $('#time').val(),
                 },
                 success: function(data) {
-                    // console.log(data[0].time);
-                    if(data.length>0)
-                    {
-                        data.forEach(function(value) {
-                            if(timeslots.includes(value.appointment.time))
-                            {
-                                var i = timeslots.indexOf(value.appointment.time);
-                                timeslots.splice(i, 1);
-                            }
-                        });
-                        console.log(data);
-                        var $dropdown = $('#time');
+
+                    for(var key in data) {
+                        if(data[key].count >= data.max_count) {
+                            var i = timeslots.indexOf(key);
+                            timeslots.splice(i, 1);
+                        }
+                        console.log(data[key].count);
                     }
                 },
                 complete: function() {
-                    for (var i of timeslots)
-                    {
-                        var opt = document.createElement("option");
-                        opt.value = i;
-                        opt.innerHTML = i;
-                        $('#time').append(opt);
-                        // console.log(i);
-                    }
+                    $('#time').empty();
+                    _populate(timeslots);
                 }
             });
-        });
+
+        }
+
+        function _populate(timeslots) {
+            for (var i of timeslots)
+                {
+                    var opt = document.createElement("option");
+                    opt.value = i;
+                    opt.innerHTML = i;
+                    $('#time').append(opt);
+                }
+                $("#time:first").val(timeslots[0]);
+                // console.log($('#time').val());
+        }
+
+    $(document).ready(function () {
+        // console.log(timeslots);
+        $("#date").change(populate);
+    });
+
+    $('#date').on("change", "#time", function() {
+        alert("here");
     });
 </script>
 @endsection
