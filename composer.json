@@ -9,6 +9,8 @@
     "license": "MIT",
     "require": {
         "php": "^7.1.3",
+        "botman/botman": "^2.5",
+        "botman/driver-web": "^1.5",
         "fideloper/proxy": "^4.0",
         "intervention/image": "^2.4",
         "jenssegers/mongodb": "^3.5",
@@ -16,7 +18,8 @@
         "laravel/cashier": "^9.3",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
-        "nesbot/carbon": "^2.22"
+        "nesbot/carbon": "^2.22",
+        "stripe/stripe-php": "^6.43"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

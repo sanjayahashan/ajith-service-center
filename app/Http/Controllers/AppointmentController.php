@@ -7,6 +7,8 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Stripe\Stripe;
+use Stripe\Charge;
 
 class AppointmentController extends Controller
 {
@@ -36,7 +38,9 @@ class AppointmentController extends Controller
     {
         return view('appointments.create');
     }
-
+    public function getpayment(){
+        return view('appointments.payment');
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -166,5 +170,20 @@ class AppointmentController extends Controller
 
             return $appointments_count;
         }
+    }
+    
+    public function postcheckout(Request $request){
+        Stripe::setApiKey("sk_test_Xbb5bgwahgVCbYwiK1X77cSS00QoUHQJWw");
+    try{
+        Charge::create([
+            "amount" => 2.77,
+            "currency" => "usd",
+            "source" => $request->stripeToken, // obtained with Stripe.js
+            "description" => "Test charge"
+            ]);
+    }catch(\Exeption $e){
+            return redirect()->route('payment')->with('error',$e->getMessage());
+        }
+    return redirect()->route('appointments.create')->with('success','Successfully create an appointment');
     }
 }

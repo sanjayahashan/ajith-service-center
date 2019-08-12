@@ -1,4 +1,5 @@
 <?php
+//use Symfony\Component\Routing\Annotation\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,10 +25,14 @@ Route::get('/showroom', 'VehicleController@index')->name('showroom');
 
 // Appointment Routing
 Route::resource('appointments', 'AppointmentController')->except([
-    'index'
+    'index','payment'
 ]);
+Route::get('appointment/payment','AppointmentController@getpayment')->name('payment');
+Route::post('/payment','AppointmentController@postcheckout')->name('checkout');
 Route::post('appointments/timeslots', 'AppointmentController@displayTimeSlots')->name('appointments.times');
 Route::post('appointments/count', 'AppointmentController@reserveSlots')->name('appointments.count');
+Route::match(['get', 'post'], '/botman', 'BotManController@handle');
+
 
 
 Route::group(['middleware' => ['admin']], function () {
