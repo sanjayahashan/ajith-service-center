@@ -30,6 +30,7 @@
                 <div id="check-error" role="alert"></div>
                 <div class="panel-body">
                     <form action="{{ route('checkout') }}" method="post" id="payment-form">
+                    @csrf
         <div class="form-group">
           <label for="name">Name on Card</label>
           <div class="input-group">

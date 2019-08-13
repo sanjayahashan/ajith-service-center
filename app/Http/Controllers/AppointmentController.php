@@ -12,7 +12,7 @@ use Stripe\Charge;
 
 class AppointmentController extends Controller
 {
-    public $slots = 4;
+    public $slots = 3;
     
     public function __construct()
     {
@@ -38,9 +38,14 @@ class AppointmentController extends Controller
     {
         return view('appointments.create');
     }
-    public function getpayment(){
+
+    public function getpayment(Request $request){
+        session(['date' => $request->date, 'time' => $request->time]);
+
+        // dd($request->session()->all());
         return view('appointments.payment');
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -49,23 +54,27 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->session()->all());
+        $time = session('time');
+        $date = session('date');
+        
         $appointment = new Appointment;
         $appointment->user_id = Auth::user()->_id;
-        $appointment->time = $request->time;
-        $appointment->date = $request->date;
-        $appointment->slot = $this->find_count($request)+1;
+        $appointment->date = $date;
+        $appointment->time = $time;
+        $appointment->slot = $this->find_count($date, $time)+1;
 
         // print_r(Auth::user()->_id);
         $appointment->save();
 
-        return redirect()->route('appointments.create');
+        // return redirect()->route('appointments.create');
     }
 
-    private function find_count($request) 
+    private function find_count($date, $time) 
     {
         $count = Appointment::where([
-            ['date', '=', $request->date],
-            ['time', '=', $request->time],            
+            ['date', '=', $date],
+            ['time', '=', $time],            
         ])->count();
         return $count;
     }
@@ -171,19 +180,20 @@ class AppointmentController extends Controller
             return $appointments_count;
         }
     }
-    
+
     public function postcheckout(Request $request){
         Stripe::setApiKey("sk_test_Xbb5bgwahgVCbYwiK1X77cSS00QoUHQJWw");
     try{
         Charge::create([
-            "amount" => 2.77,
-            "currency" => "usd",
+            "amount" => 50000,
+            "currency" => "lkr",
             "source" => $request->stripeToken, // obtained with Stripe.js
             "description" => "Test charge"
             ]);
+            $this->store($request);
     }catch(\Exeption $e){
             return redirect()->route('payment')->with('error',$e->getMessage());
         }
-    return redirect()->route('appointments.create')->with('success','Successfully create an appointment');
+    return redirect()->route('appointments.create')->with('success','Appointment Reserved Successfully');
     }
 }
