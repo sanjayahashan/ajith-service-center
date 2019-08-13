@@ -57,3 +57,5 @@ Route::group(['middleware' => ['admin']], function () {
     Route::resource('vehicles', 'VehicleController')->only([
         'index', 'show'
     ]);
+
+    Route::resource('dashboard', 'UserController');

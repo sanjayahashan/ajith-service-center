@@ -138,10 +138,6 @@
                                 <label for="service-12">Tire Pressure</label>
                             </div>
                         </div>
-
-                        <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <button class="theme-btn btn-style-one" type="submit" name="submit-form">Reserve Appointment</button>
-                        </div>
                     </div>
                 </div>
             </form>
