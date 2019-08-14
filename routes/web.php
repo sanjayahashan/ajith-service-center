@@ -31,6 +31,9 @@ Route::get('appointment/payment','AppointmentController@getpayment')->name('paym
 Route::post('/payment','AppointmentController@postcheckout')->name('checkout');
 Route::post('appointments/timeslots', 'AppointmentController@displayTimeSlots')->name('appointments.times');
 Route::post('appointments/count', 'AppointmentController@reserveSlots')->name('appointments.count');
+Route::post('appointments/disabledDates', 'AppointmentController@getDisabledDates')->name('appointments.disableddates');
+
+
 Route::match(['get', 'post'], '/botman', 'BotManController@handle');
 
 
@@ -48,6 +51,7 @@ Route::group(['middleware' => ['admin']], function () {
         Route::get('/manageads', 'AdController@manage')->name('ads.manage');
 
     Route::resource('serviceslots', 'ServiceSlotController');
+    Route::resource('admin', 'AdminController');
     });
     
     //ad routing

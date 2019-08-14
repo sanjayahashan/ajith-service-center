@@ -241,6 +241,37 @@
 
         }
 
+        function disableDates() {
+            jQuery.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            jQuery.ajax({
+                url: '{{ route('appointments.disableddates') }}',
+                type: 'post',
+                data: {
+                },
+                success: function (data) {
+                    var array = data;
+
+                jQuery('#date').datepicker({
+                    dateFormat: "yy-mm-dd",
+                    minDate: 1,
+
+                    beforeShowDay: function(date){
+                        var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+                        return [ array.indexOf(string) == -1 ]
+                    }
+            });
+                    console.log(data);
+                },
+                complete: function () {
+
+                }
+            });
+        }
+
         function _populate(timeslots) {
             for (var i of timeslots) {
                 var opt = document.createElement("option");
@@ -254,6 +285,8 @@
 
         jQuery(document).ready(function () {
             // console.log(timeslots);
+            disableDates();
+
             jQuery("#date").change(function() {
                 jQuery('#dateCell').html(jQuery('#date').val());
                 jQuery('#timeCell').html(jQuery('#time').val());
@@ -279,17 +312,6 @@
             //     dateFormat: "yy-mm-dd"
             // });
 
-            var array = [];
-
-            jQuery('#date').datepicker({
-                dateFormat: "yy-mm-dd",
-                minDate: 1,
-
-                beforeShowDay: function(date){
-                    var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-                    return [ array.indexOf(string) == -1 ]
-                }
-            });
         });
 
     </script>

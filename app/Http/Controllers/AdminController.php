@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 
 class AdminController extends Controller
 {
@@ -36,7 +38,11 @@ class AdminController extends Controller
     // }
     public function adweb()
     {
-        return view('admin.adweb');
+        $configs = DB::table('configs')->first();
+        // dd($configs);
+
+        return view('admin.adweb')->with('configs', $configs);
+
     }
 
     /**
@@ -91,7 +97,9 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        DB::collection('configs')->where('_id', $id)->push('disabled', $request->disabled);
+        
+        return redirect()->route('admin.adweb');
     }
 
     /**

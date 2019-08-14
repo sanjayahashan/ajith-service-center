@@ -1,29 +1,34 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container">
-<div class="row">
-  <div class="col-md-6">
-  <input type="date" name="date" id="date">
-  </div>
 
-  <div class="col-md-6">
-    <table class="table table-striped">
+
+<div class="card">
+  <div class="card-body">
+      <div class="row">
+          
+          <div class="col-md-4">
+          <input type="date" name="date" id="date" class="form-control bootstrapMaterialDatePicker">
+          </div>
+
+          <div class="col-md-8">
+          <table class="table table-striped">
       <thead>
         <tr>
           <th scope="col">Timeslot</th>
           <th scope="col">Customer</th>
           <th scope="col">Customer Email</th>
           <th scope="col">Customer Phone</th>
+          <th scope="col">Service Slot No.</th>
         </tr>
       </thead>
       <tbody id="tbody">
       </tbody>
     </table>
+          </div>
+      </div>
   </div>
 </div>
-</div>
-
 
 @endsection
 
@@ -64,7 +69,7 @@
       success: function(data) {
         console.log(data);
         data.forEach(function(value) {
-          $('#tbody').append('<tr><td>' + value.appointment.time + '</td><td>' + value.appointment.user.name + '</td><td>' + value.appointment.user.email + '</td><td>' + value.appointment.user.phone + '</td></tr>');
+          $('#tbody').append('<tr><td>' + value.appointment.time + '</td><td>' + value.appointment.user.name + '</td><td>' + value.appointment.user.email + '</td><td>' + value.appointment.user.phone + '</td><td>' + value.appointment.slot + '</td></tr>');
         });
       }
     });

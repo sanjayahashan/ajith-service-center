@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Appointment;
 use App\User;
+use App\Config;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -13,11 +14,16 @@ use App\Notifications\AppointmentReserved;
 
 class AppointmentController extends Controller
 {
-    public $slots = 3;
+    private $slots;
     
     public function __construct()
     {
         $this->middleware('auth');
+
+        $record = DB::table('configs')->first();
+        $this->slots = $record['slots'];
+
+        // dd($this->slots);
     }
 
     /**
@@ -135,7 +141,7 @@ class AppointmentController extends Controller
         if($request->ajax())
         {
             $date = $request->date;
-            $appointments = Appointment::where('date',$date)->orderBy('time')->get();
+            $appointments = Appointment::where('date',$date)->orderBy('time', 'desc')->get();
             $data = array();
             foreach($appointments as $appointment) {
                 $data[] = array(
@@ -201,5 +207,13 @@ class AppointmentController extends Controller
             return redirect()->route('payment')->with('error',$e->getMessage());
         }
     return redirect()->route('appointments.create')->with('success','Appointment Reserved Successfully');
+    }
+
+    public function getDisabledDates() {
+        //disabled dates
+        $result = DB::table('configs')->first();
+        $disabledDates = $result['disabled'];
+
+        return response()->json($disabledDates);
     }
 }
