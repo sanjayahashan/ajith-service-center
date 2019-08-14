@@ -15,6 +15,7 @@
 <link href="{{ asset('plugins/revolution/css/navigation.css') }}" rel="stylesheet" type="text/css"><!-- REVOLUTION NAVIGATION STYLES -->
 <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 
 <!--Color Switcher Mockup-->
 <link href="{{ asset('css/color-switcher-design.css') }}" rel="stylesheet">
@@ -75,7 +76,7 @@
                                 <h3>Appointment Date</h3>
                             </div>
                             <div class="field-inner">
-                                <input id="date" type="date" name="date" min="2019">
+                                <input id="date" type="date" name="date" min="{{ date('Y-m-d', strtotime("+2 days")) }}">
                             </div>
                         </div>
 
@@ -198,7 +199,8 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    
     <script>
     $.noConflict();
         function populate() {
@@ -269,13 +271,10 @@
                 jQuery('#inputDate').val(jQuery('#date').val());
                 console.log(jQuery(this).val());
             });
+        
+            
         });
 
-        jQuery('#demo').click(function() {
-            // jQuery('#dateCell').html(jQuery('#date').val());
-            // jQuery('#timeCell').html(jQuery('#time').val());
-            console.log(jQuery('#time').val())
-        });
     </script>
 
 </body>
