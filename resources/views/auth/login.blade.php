@@ -101,7 +101,9 @@
 
                             <div class="form-group">
                             <label>{{ __('Phone Number') }}</label>
-                                <input id="phone" type="text" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" name="phone" value="{{ old('phone') }}" placeholder="07XXXXXXXX" required>
+                                <input id="phone" type="tel" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" name="phone" value="{{ old('phone') }}" placeholder="947XXXXXXXX" required
+                                    maxlength="11"
+                                >
 
                                 @if ($errors->has('phone'))
                                     <span class="invalid-feedback" role="alert">
