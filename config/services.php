@@ -44,4 +44,16 @@ return [
         ],
     ],
 
+    'nexmo' => [
+        'key' => env('NEXMO_KEY'),
+        'secret' => env('NEXMO_SECRET'),
+        'sms_from' => 'Ajith Service Centre',
+    ],
+
+    'twilio' => [
+        'auth_token' => env('TWILIO_AUTH_TOKEN'), // optional when using username and password
+        'account_sid' => env('TWILIO_ACCOUNT_SID'),
+        'from' => env('TWILIO_FROM'), // optional
+    ],
+
 ];

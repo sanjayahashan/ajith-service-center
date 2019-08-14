@@ -47,7 +47,7 @@ $(document).ready(function(){
             if(result.error && result.error.message){
               alert(result.error.message);
             }else{
-              alert(result.token.id);
+              // alert(result.token.id);
               stripeTokenHandler(result.token);
             }
           });

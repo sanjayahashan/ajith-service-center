@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Stripe\Stripe;
 use Stripe\Charge;
+use App\Notifications\AppointmentReserved;
 
 class AppointmentController extends Controller
 {
@@ -44,6 +45,7 @@ class AppointmentController extends Controller
 
         // dd($request->session()->all());
         return view('appointments.payment');
+        // $this->store($request);
     }
 
     /**
@@ -66,6 +68,10 @@ class AppointmentController extends Controller
 
         // print_r(Auth::user()->_id);
         $appointment->save();
+
+        //send notification
+        $user = Auth::user();
+        $user->notify(new AppointmentReserved($appointment));
 
         // return redirect()->route('appointments.create');
     }
@@ -129,7 +135,7 @@ class AppointmentController extends Controller
         if($request->ajax())
         {
             $date = $request->date;
-            $appointments = Appointment::all()->where('date',$date);
+            $appointments = Appointment::where('date',$date)->orderBy('time')->get();
             $data = array();
             foreach($appointments as $appointment) {
                 $data[] = array(

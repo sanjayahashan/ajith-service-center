@@ -76,7 +76,7 @@
                                 <h3>Appointment Date</h3>
                             </div>
                             <div class="field-inner">
-                                <input id="date" type="date" name="date" min="{{ date('Y-m-d', strtotime("+2 days")) }}">
+                                <input id="date" type="input" name="date" required>
                             </div>
                         </div>
 
@@ -85,7 +85,7 @@
                                 <h3>Preffered Time Frame</h3>
                             </div>
                             <div class="field-inner">
-                                <select id="time" name="time" class="custom-select-box">
+                                <select id="time" name="time" class="custom-select-box" required>
                                 </select>
                             </div>
                         </div>
@@ -143,9 +143,9 @@
                 </div>
             </form>
             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <button type="button" class="theme-btn btn-style-one" data-toggle="modal" data-target="#exampleModal">
-        Reserve Appointments
-    </button>
+                    <button type="button" class="theme-btn btn-style-one" data-toggle="modal" data-target="#exampleModal" id="reserve" disabled>
+                         Reserve Appointments
+                    </button>
             </div>
             <!--End Appointment Form-->
 
@@ -165,7 +165,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Confirm Details</h5>
                     <button id="demo" type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -186,8 +186,8 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <form action="{{ route('payment') }}">
-                        <input type="hidden" name="date" id="inputDate">
-                        <input type="hidden" name="time" id="inputTime">
+                        <input type="hidden" name="date" id="inputDate" required>
+                        <input type="hidden" name="time" id="inputTime" required>
                         <button class="btn btn-primary" type="submit" name="submit-form">Proceed to Payment</button>
                     </form>
                 </div>
@@ -200,12 +200,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    
+
     <script>
     $.noConflict();
         function populate() {
-            var timeslots = ["9.00-9.45", "9.45-10.30", "10.30-11.15", "11.15-12.00", "12.00-12.45", "1.45-2.30",
-                "2.30-3.15", "3.15-4.00", "4.00-4.45"
+            var timeslots = ["9.00", "9.45", "10.30", "11.15", "12.00", "1.45",
+                "2.30", "3.15", "4.00"
             ];
             // e.preventDefault();
             jQuery('#time').empty();
@@ -248,7 +248,7 @@
                 opt.innerHTML = i;
                 jQuery('#time').append(opt);
             }
-            jQuery("#time:first").val(timeslots[0]);
+            jQuery("#time").val(timeslots[0]);
             // console.log(jQuery('#time').val());
         }
 
@@ -261,6 +261,9 @@
                 jQuery('#inputTime').val(jQuery('#time').val());
                 jQuery('#inputDate').val(jQuery('#date').val());
                 populate();
+
+                jQuery('#reserve').prop('disabled', false);
+                console.log(jQuery('#date').val());
             });
 
             jQuery(document).on("change","#time",function() {
@@ -272,7 +275,21 @@
                 console.log(jQuery(this).val());
             });
         
-            
+            // jQuery( "#date" ).datepicker({
+            //     dateFormat: "yy-mm-dd"
+            // });
+
+            var array = [];
+
+            jQuery('#date').datepicker({
+                dateFormat: "yy-mm-dd",
+                minDate: 1,
+
+                beforeShowDay: function(date){
+                    var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+                    return [ array.indexOf(string) == -1 ]
+                }
+            });
         });
 
     </script>
