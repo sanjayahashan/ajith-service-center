@@ -49,9 +49,9 @@ class AppointmentReserved extends Notification
         return (new MailMessage)
                     ->greeting('Success!')
                     ->line('Your Appointment has been Reserved')
-                    ->line('Date : ', $date)
-                    ->line('Time : ', $time)
-                    ->line('Service Slot No. : ', $this->appointment->slot)
+                    ->line('Date : ' . $date)
+                    ->line('Time : ' . $time)
+                    ->line('Service Slot No. : ' . $this->appointment->slot)
                     ->action('See all your Reservations', url('/dashboard'))
                     ->line('Thank you for using our application!');
     }

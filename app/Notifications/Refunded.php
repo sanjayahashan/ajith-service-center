@@ -75,6 +75,6 @@ class Refunded extends Notification
     public function toNexmo($notifiable)
     {
         return (new NexmoMessage)
-                    ->content('Sorry! your appointment has been cancelled and refunded');
+                    ->content('Sorry! your appointment on ' . $this->appointment->date . ' has been cancelled');
     }
 }
