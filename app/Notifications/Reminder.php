@@ -12,15 +12,16 @@ use App\Appointment;
 class Reminder extends Notification
 {
     use Queueable;
+    private $appointment;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($appointment)
     {
-        //
+        $this->appointment = $appointment;        
     }
 
     /**
@@ -44,6 +45,7 @@ class Reminder extends Notification
     {
         return (new MailMessage)
                     ->line('You have an appointment tomorrow')
+                    ->line('Time : ' . $this->appointment->time)
                     ->action('View Your Appointments', url('/dashboard'))
                     ->line('Thank you for using our application!');
     }
@@ -64,6 +66,6 @@ class Reminder extends Notification
     public function toNexmo($notifiable)
     {
         return (new NexmoMessage)
-                    ->content('You have an appointment tommorrow!');
+                    ->content('You have an appointment tommorrow at' . $appointment->time);
     }
 }

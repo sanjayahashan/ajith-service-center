@@ -9,7 +9,7 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Messages\NexmoMessage;
 use App\Appointment;
 
-class AppointmentReserved extends Notification
+class Refunded extends Notification
 {
     use Queueable;
     private $appointment;
@@ -47,13 +47,15 @@ class AppointmentReserved extends Notification
         $date = $this->appointment->date;
         $time = $this->appointment->time;
         return (new MailMessage)
-                    ->greeting('Success!')
-                    ->line('Your Appointment has been Reserved')
+                    ->greeting('We are Sorry!')
+                    ->line('Due to unavoidable circumstances we have to close our service on the following date')
+                    ->line('Your money has been refunded')
+                    ->line('Your appointment details')
                     ->line('Date : ' . $date)
                     ->line('Time : ' . $time)
                     ->line('Service Slot No. : ' . $this->appointment->slot)
                     ->action('See all your Reservations', url('/dashboard'))
-                    ->line('Thank you for using our application!');
+                    ->line('Hope to see you soon');
     }
 
     /**
@@ -73,6 +75,6 @@ class AppointmentReserved extends Notification
     public function toNexmo($notifiable)
     {
         return (new NexmoMessage)
-                    ->content('Appointment Reserved Successfully!');
+                    ->content('Sorry! your appointment on ' . $this->appointment->date . ' has been cancelled');
     }
 }

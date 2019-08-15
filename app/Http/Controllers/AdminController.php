@@ -97,7 +97,9 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        DB::collection('configs')->where('_id', $id)->push('disabled', $request->disabled);
+        // dd($request);
+        DB::collection('configs')->where('_id', $id)
+            ->update(['slots' => $request->slots]);
         
         return redirect()->route('admin.adweb');
     }

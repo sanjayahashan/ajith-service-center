@@ -135,7 +135,7 @@
                             </div>
                             <input type="text" class="form-control" id="transmission" name="transmission" placeholder="5 Speeds Manual "
                                 @if(isset($vehicle->id))
-                                    value="{{ $vehicle->engine }}"
+                                    value="{{ $vehicle->transmission }}"
                                 @endif
                             >
                         </div>

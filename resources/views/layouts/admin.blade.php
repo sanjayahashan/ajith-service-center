@@ -25,6 +25,8 @@
     <link href="{{ asset('assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet" />
     <!-- Custom CSS -->
     <link href="{{ asset('css/admin.style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
     <!-- You can change the theme colors from here -->
     <link href="{{ asset('css/colors/blue.css') }}" id="theme" rel="stylesheet">
 
@@ -166,8 +168,8 @@
                     <ul id="sidebarnav">
                         <li class="nav-small-cap">PERSONAL</li>
             
-                            
                         </li>
+                        @if(Auth::user()->isAdmin)
                         <li> <a class="waves-effect waves-dark" href="{{route('admin.adweb')}}" aria-expanded="false"><i class="mdi mdi-laptop-windows"></i><span class="hide-menu">Web content</span></a>
                             
                         </li>
@@ -183,7 +185,7 @@
                         <li> <a class="waves-effect waves-dark" href="{{route('appointments.index')}}" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Appointments</span></a>
                             
                         </li>
-                        
+                        @endif
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
