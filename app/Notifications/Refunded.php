@@ -9,7 +9,7 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Messages\NexmoMessage;
 use App\Appointment;
 
-class Reminder extends Notification
+class Refunded extends Notification
 {
     use Queueable;
     private $appointment;
@@ -19,9 +19,9 @@ class Reminder extends Notification
      *
      * @return void
      */
-    public function __construct($appointment)
+    public function __construct(Appointment $appointment)
     {
-        $this->appointment = $appointment;        
+        $this->appointment = $appointment;
     }
 
     /**
@@ -32,7 +32,7 @@ class Reminder extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail', 'nexmo'];
+        return ['mail'];
     }
 
     /**
@@ -43,11 +43,19 @@ class Reminder extends Notification
      */
     public function toMail($notifiable)
     {
+        // dd($this->appointment->date);
+        $date = $this->appointment->date;
+        $time = $this->appointment->time;
         return (new MailMessage)
-                    ->line('You have an appointment tomorrow')
-                    ->line('Time : ' . $this->appointment->time)
-                    ->action('View Your Appointments', url('/dashboard'))
-                    ->line('Thank you for using our application!');
+                    ->greeting('We are Sorry!')
+                    ->line('Due to unavoidable circumstances we have to close our service on the following date')
+                    ->line('Your money has been refunded')
+                    ->line('Your appointment details')
+                    ->line('Date : ' . $date)
+                    ->line('Time : ' . $time)
+                    ->line('Service Slot No. : ' . $this->appointment->slot)
+                    ->action('See all your Reservations', url('/dashboard'))
+                    ->line('Hope to see you soon');
     }
 
     /**
@@ -63,9 +71,10 @@ class Reminder extends Notification
         ];
     }
 
+    //SMS notification
     public function toNexmo($notifiable)
     {
         return (new NexmoMessage)
-                    ->content('You have an appointment tommorrow at' . $appointment->time);
+                    ->content('Sorry! your appointment has been cancelled and refunded');
     }
 }

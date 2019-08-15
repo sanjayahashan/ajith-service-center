@@ -12,6 +12,7 @@ use Stripe\Stripe;
 use Stripe\Charge;
 use Stripe\Refund;
 use App\Notifications\AppointmentReserved;
+use App\Notifications\Refunded;
 
 class AppointmentController extends Controller
 {
@@ -220,8 +221,9 @@ class AppointmentController extends Controller
         return response()->json($disabledDates);
     }
 
+    //refund function
     public function refund($id) {
-                // Set your secret key: remember to change this to your live secret key in production
+        // Set your secret key: remember to change this to your live secret key in production
         // See your keys here: https://dashboard.stripe.com/account/apikeys
         Stripe::setApiKey('sk_test_19960cNZj3KgrRpnCVLAcegq00UfIIh35I');
 
@@ -232,10 +234,16 @@ class AppointmentController extends Controller
             'charge' => $token,
         ]);
 
+        //after sending the refund request the appoinment should be deleted
         $appointment->delete();
+
+        //send notification
+        $appointment->notify(new Refunded($appointment));
+        
         return redirect()->route('appointments.index')->with('success', 'Appointment Refunded');
     }
 
+    //function to disable dates
     public function disableDates(Request $request, $id)
     {
         $appointments = Appointment::where('date',$request->disabled)->get();
@@ -250,6 +258,7 @@ class AppointmentController extends Controller
         return redirect()->route('admin.adweb');
     }
 
+    //function to enable dates
     public function deleteDisabledDates($id, $date) 
     {
         DB::collection('configs')->where('_id', $id)->pull('disabled', $date);
