@@ -43,7 +43,7 @@ $(document).ready(function(){
             'name':$('#name').val()
            };
           stripe.createToken(card, cardData).then(function(result) {
-            console.log(result);
+           // console.log(result);
             if(result.error && result.error.message){
               alert(result.error.message);
             }else{
@@ -66,5 +66,4 @@ function stripeTokenHandler(token) {
   
     // Submit the form
     form.submit();
-    console.log('blaaa');
   }

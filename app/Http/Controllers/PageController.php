@@ -21,4 +21,7 @@ class PageController extends Controller
     public function showroom(){
         return view('showroom');
     }
+    public function reserv(){
+        return view('user.dashboard');
+    }
 }

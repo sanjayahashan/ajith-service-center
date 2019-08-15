@@ -170,7 +170,7 @@
                             <li><a href="{{ route('login') }}">{{ __('LOGIN') }}</a></li>
                             @endif
                             @else
-
+                            <li><a href="{{ route('reserv') }}">RESERVED APPOINTMENTS</a></li>
                             <li class="dropdown"><a href="#">{{ Auth::user()->name }}</a>
                                 <ul>
                                     @if(Auth::user()->isAdmin)

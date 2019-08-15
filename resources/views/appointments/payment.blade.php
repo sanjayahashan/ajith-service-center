@@ -3,8 +3,11 @@
 @section('content')
 <style>
 #block{
-    margin-left: 50%;
+    margin-left: 70%;
     
+}
+#cd{
+  margin-left: 20%;
 }
 .StripeElement--focus {
   border-color: #80BDFF;
@@ -15,11 +18,35 @@
 #card-exp.form-control {
   display:block;
 }
+#p1{
+  color: black;
+  font-size: 20px;
+  
+}
+#p2{
+  color: red;
+}
 </style>
+<br>
+<div class="auto-container">
+<div class="row clearfix">
+<div class="column col-lg-6 col-md-12 col-sm-12">
+<div class="card" id="cd" style="width:400px">
+  <img class="card-img-top" src="../images/credit.jpg" alt="Card image">
+  <div class="card-body">
+    <h4 class="card-title"></h4>
+    <p id="p1" class="card-text">You will be charged <b>Rs 500</b> for reservation.</p>
+    <p id="p2" class="card-text">Please note that we will <b>NOT REFUND</b> your money after canceling
+  reservation. </p>
+  <p id="p3" class="card-text">This payment is only for reserve a timeslot.. Your full payment will be
+    change according to service you get.
+  </p>
+  </div>
+</div>
+</div>
 
-<div id=block class="container" >
+<div class="column col-lg-6 col-md-12 col-sm-12" >
     <div class="row">
-        <div class="col-xs-12 col-md-4 col-md-offset-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="row">
@@ -75,6 +102,9 @@
         </div>
     </div>
 </div>
+</div>
+<br>
+
 
 @endsection
 @section('scripts')
