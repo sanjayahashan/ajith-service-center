@@ -34,6 +34,7 @@ Route::post('appointments/count', 'AppointmentController@reserveSlots')->name('a
 Route::post('appointments/getdisableddates', 'AppointmentController@getDisabledDates')->name('appointments.disableddates');
 Route::get('appointments/refund/{token}', 'AppointmentController@refund')->name('appointments.refund');
 Route::put('appointments/disabledates/{id}', 'AppointmentController@disableDates')->name('appointments.disabledates');
+Route::get('appointments/deletedisabled/id/{id}/date/{date}', 'AppointmentController@deleteDisabledDates')->name('appointments.deletedisabled');
 
 Route::match(['get', 'post'], '/botman', 'BotManController@handle');
 

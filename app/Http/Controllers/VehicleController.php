@@ -145,7 +145,7 @@ class VehicleController extends Controller
         }
 
         $vehicle->save();
-        return view('vehicles.edit')->with(['vehicle' => $vehicle]);
+        return redirect()->route('vehicles.edit', $vehicle)->with(['vehicle' => $vehicle]);
     }
 
     /**

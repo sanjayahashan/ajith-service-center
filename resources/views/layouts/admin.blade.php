@@ -25,6 +25,8 @@
     <link href="{{ asset('assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet" />
     <!-- Custom CSS -->
     <link href="{{ asset('css/admin.style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
     <!-- You can change the theme colors from here -->
     <link href="{{ asset('css/colors/blue.css') }}" id="theme" rel="stylesheet">
 

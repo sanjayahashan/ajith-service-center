@@ -249,4 +249,10 @@ class AppointmentController extends Controller
         
         return redirect()->route('admin.adweb');
     }
+
+    public function deleteDisabledDates($id, $date) 
+    {
+        DB::collection('configs')->where('_id', $id)->pull('disabled', $date);
+        return redirect()->route('admin.adweb');
+    }
 }
