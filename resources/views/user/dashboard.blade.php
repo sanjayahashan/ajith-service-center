@@ -2,8 +2,8 @@
 
 @section('content')
 
-<div class="container">
-
+<div class="card">
+    <div class="card-body">
     <div class="table-responsive">
         <table class="table color-table info-table">
             <thead>
@@ -25,6 +25,8 @@
                 @endforeach
             </tbody>
         </table>
+    </div>
+    </div>
     </div>
 </div>
 @endsection

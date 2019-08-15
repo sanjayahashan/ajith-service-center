@@ -166,8 +166,8 @@
                     <ul id="sidebarnav">
                         <li class="nav-small-cap">PERSONAL</li>
             
-                            
                         </li>
+                        @if(Auth::user()->isAdmin)
                         <li> <a class="waves-effect waves-dark" href="{{route('admin.adweb')}}" aria-expanded="false"><i class="mdi mdi-laptop-windows"></i><span class="hide-menu">Web content</span></a>
                             
                         </li>
@@ -183,7 +183,7 @@
                         <li> <a class="waves-effect waves-dark" href="{{route('appointments.index')}}" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Appointments</span></a>
                             
                         </li>
-                        
+                        @endif
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

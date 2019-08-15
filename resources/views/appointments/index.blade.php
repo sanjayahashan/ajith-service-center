@@ -69,7 +69,22 @@
       success: function(data) {
         console.log(data);
         data.forEach(function(value) {
-          $('#tbody').append('<tr><td>' + value.appointment.time + '</td><td>' + value.appointment.user.name + '</td><td>' + value.appointment.user.email + '</td><td>' + value.appointment.user.phone + '</td><td>' + value.appointment.slot + '</td></tr>');
+          $('#tbody').append('<tr><td>' + value.appointment.time + '</td><td>' + 
+            value.appointment.user.name + '</td><td>' + 
+            value.appointment.user.email + '</td><td>' + 
+            value.appointment.user.phone + '</td><td>' + 
+            value.appointment.slot + '</td>'
+          );
+
+          var refundRow = jQuery('<a></a>', {
+            "class": "btn btn-warning",
+            "href": "appointments/refund/" + value.appointment._id,
+            "html": "Refund",
+            // "onClick": alert("Are you sure to refund" + value.appointment.user.name)
+          })
+          var r = jQuery('<td></td>').html(refundRow);
+          jQuery('#tbody').append(r);
+          jQuery('#tbody').append('</tr>');
         });
       }
     });

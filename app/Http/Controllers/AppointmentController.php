@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Stripe\Stripe;
 use Stripe\Charge;
+use Stripe\Refund;
 use App\Notifications\AppointmentReserved;
 
 class AppointmentController extends Controller
@@ -60,7 +61,7 @@ class AppointmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $token)
     {
         // dd($request->session()->all());
         $time = session('time');
@@ -71,6 +72,7 @@ class AppointmentController extends Controller
         $appointment->date = $date;
         $appointment->time = $time;
         $appointment->slot = $this->find_count($date, $time)+1;
+        $appointment->token = $token;
 
         // print_r(Auth::user()->_id);
         $appointment->save();
@@ -94,10 +96,10 @@ class AppointmentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Appoinment  $appoinment
+     * @param  \App\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function show(Appoinment $appoinment)
+    public function show(Appointment $appointment)
     {
         //
     }
@@ -105,10 +107,10 @@ class AppointmentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Appoinment  $appoinment
+     * @param  \App\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Appoinment $appoinment)
+    public function edit(Appointment $appointment)
     {
         //
     }
@@ -117,10 +119,10 @@ class AppointmentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Appoinment  $appoinment
+     * @param  \App\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Appoinment $appoinment)
+    public function update(Request $request, Appointment $appointment)
     {
         //
     }
@@ -128,10 +130,10 @@ class AppointmentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Appoinment  $appoinment
+     * @param  \App\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Appoinment $appoinment)
+    public function destroy(Appointment $appointment)
     {
         //
     }
@@ -194,15 +196,16 @@ class AppointmentController extends Controller
     }
 
     public function postcheckout(Request $request){
-        Stripe::setApiKey("sk_test_Xbb5bgwahgVCbYwiK1X77cSS00QoUHQJWw");
+        Stripe::setApiKey("sk_test_19960cNZj3KgrRpnCVLAcegq00UfIIh35I");
     try{
-        Charge::create([
+        $paymentResponse = Charge::create([
             "amount" => 50000,
             "currency" => "lkr",
             "source" => $request->stripeToken, // obtained with Stripe.js
             "description" => "Test charge"
             ]);
-            $this->store($request);
+            // dd($paymentResponse);
+            $this->store($request, $paymentResponse['id']);
     }catch(\Exeption $e){
             return redirect()->route('payment')->with('error',$e->getMessage());
         }
@@ -215,5 +218,35 @@ class AppointmentController extends Controller
         $disabledDates = $result['disabled'];
 
         return response()->json($disabledDates);
+    }
+
+    public function refund($id) {
+                // Set your secret key: remember to change this to your live secret key in production
+        // See your keys here: https://dashboard.stripe.com/account/apikeys
+        Stripe::setApiKey('sk_test_19960cNZj3KgrRpnCVLAcegq00UfIIh35I');
+
+        $appointment = Appointment::find($id);
+        $token = $appointment->token;
+
+        $refund = Refund::create([
+            'charge' => $token,
+        ]);
+
+        $appointment->delete();
+        return redirect()->route('appointments.index')->with('success', 'Appointment Refunded');
+    }
+
+    public function disableDates(Request $request, $id)
+    {
+        $appointments = Appointment::where('date',$request->disabled)->get();
+        // dd($appointments);
+
+        DB::collection('configs')->where('_id', $id)->push('disabled', $request->disabled);
+        
+        foreach($appointments as $appointment) {
+            $this->refund($appointment->_id);
+        }
+        
+        return redirect()->route('admin.adweb');
     }
 }

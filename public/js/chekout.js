@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    var stripe = Stripe('pk_test_ft9SEHcKa11dg7CAQKFgDdAP00O5pkHADD');
+    var stripe = Stripe('pk_test_GVYF6Xf6ninS04tO9HzbGSD700LpY9oGNX');
     var elements = stripe.elements();
       
         // Try to match bootstrap 4 styling

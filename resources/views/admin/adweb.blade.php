@@ -5,7 +5,7 @@
     <div class="card-body">
         <div class="row">
             <div class="col-md-4">
-                <form action="{{ route('admin.update', ['id' => $configs['_id']]) }}" method="post">
+                <form action="{{ route('appointments.disabledates', ['id' => $configs['_id']]) }}" method="post">
                     @method('PUT')
                     @csrf
                     <input class="form-control" type="date" name="disabled" id="disabled">
@@ -20,6 +20,7 @@
                     @foreach($configs['disabled'] as $key=>$date)
                         <li class="list-group-item">
                             {{ $date }}
+                            <button class="btn btn-danger" type=""></button>
                         </li>
                     @endforeach
                 </ul>
