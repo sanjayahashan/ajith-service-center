@@ -102,6 +102,7 @@
     });
 
     $('#date').change(function() {
+      $('#tbody').html('');
       displayTimeSlots();
     })
   });
