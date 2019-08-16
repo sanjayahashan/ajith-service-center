@@ -261,6 +261,7 @@
                 jQuery('#date').datepicker({
                     dateFormat: "yy-mm-dd",
                     minDate: 1,
+                    disabledWeekDays:[0]
 
                     beforeShowDay: function(date){
                         var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
