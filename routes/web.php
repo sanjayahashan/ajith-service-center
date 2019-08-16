@@ -22,6 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/about', 'PageController@about')->name('about');
 Route::get('/contact', 'PageController@contact')->name('contact');
 Route::get('/showroom', 'VehicleController@index')->name('showroom');
+Route::get('/reserv', 'PageController@reserv')->name('reserv');
 
 // Appointment Routing
 Route::resource('appointments', 'AppointmentController')->except([

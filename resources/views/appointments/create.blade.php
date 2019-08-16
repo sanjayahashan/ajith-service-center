@@ -48,15 +48,18 @@
 </section>
 <!--End Page Title-->
 
-@if(Session::has('success'))
-    <div class="alert alert-primary" role="alert">
-        {{ session('success') }}
-    </div>
-@endif
+
 
 <!--Appointment Page-->
 <div class="appointment-page">
     <div class="auto-container">
+
+        @if(Session::has('success'))
+        <div class="alert alert-primary" role="alert">
+            {{ session('success') }}
+        </div>
+        @endif
+
         <div class="sec-title">
             <h2>Make an <span>Appointment</span></h2>
             <p>We are one of the leading bike repair shops serving customers in Sri Lanka. All mechanic services<br> are
