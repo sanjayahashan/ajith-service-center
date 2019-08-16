@@ -50,7 +50,7 @@
                         <div class="icon-box"><span class="flaticon-clock"></span></div>
                         <ul>
                             <li><strong>Working Hours</strong></li>
-                            <li>Mon-Sat:9.30am to 7.00pm</li>
+                            <li>9.30am to 7.00pm</li>
                         </ul>
                     </div>
                 </div>
@@ -103,6 +103,10 @@
                                 @if(Auth::user()->isAdmin)
                                     <li>
                                         <a href="{{ route('admin.adweb') }}">Admin Dashboard</a>
+                                    </li>
+                                @else
+                                <li>
+                                        <a href="{{ route('dashboard.index') }}">Admin Dashboard</a>
                                     </li>
                                     @endif
                                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -176,6 +180,10 @@
                                     @if(Auth::user()->isAdmin)
                                     <li>
                                         <a href="{{ route('admin.adweb') }}">Admin Dashboard</a>
+                                    </li>
+                                    @else
+                                <li>
+                                        <a href="{{ route('dashboard.index') }}">Admin Dashboard</a>
                                     </li>
                                     @endif
                                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
