@@ -24,4 +24,5 @@ class PageController extends Controller
     public function reserv(){
         return view('user.dashboard');
     }
+
 }

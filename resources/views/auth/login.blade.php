@@ -7,10 +7,7 @@
         <div class="auto-container">
             <div class="inner-container clearfix">            
                 <h1>Registration</h1>
-                <ul class="bread-crumb clearfix">
-                    <li><a href="index-2.html">Home</a></li>
-                    <li>Registration</li>
-                </ul>
+               
             </div>
         </div>
     </section>

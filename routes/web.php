@@ -20,7 +20,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/about', 'PageController@about')->name('about');
-Route::get('/contact', 'PageController@contact')->name('contact');
+// Route::get('/contact', 'PageController@contact')->name('contact');
 Route::get('/showroom', 'VehicleController@index')->name('showroom');
 Route::get('/reserv', 'PageController@reserv')->name('reserv');
 
@@ -36,6 +36,7 @@ Route::post('appointments/getdisableddates', 'AppointmentController@getDisabledD
 Route::get('appointments/refund/{token}', 'AppointmentController@refund')->name('appointments.refund');
 Route::put('appointments/disabledates/{id}', 'AppointmentController@disableDates')->name('appointments.disabledates');
 Route::get('appointments/deletedisabled/id/{id}/date/{date}', 'AppointmentController@deleteDisabledDates')->name('appointments.deletedisabled');
+Route::resource('messages', 'MessageController');
 
 Route::match(['get', 'post'], '/botman', 'BotManController@handle');
 

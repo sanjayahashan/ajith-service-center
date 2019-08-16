@@ -21,7 +21,8 @@
             </div>
 
              <div class="contact-form">
-                <form method="post" action="http://expert-themes.com/html/motor-expert/sendemail.php" id="contact-form">
+                <form method="post" action="{{route('messages.store')}}" id="contact-form">
+                    @csrf
                     <div class="row clearfix">
                         <div class="col-lg-6 col-md-12 col-sm-12 form-group pull-right">
                             <textarea name="message" placeholder="Message"></textarea>
@@ -46,7 +47,7 @@
                                 </div>
 
                                 <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                                    <button type="submit" name="submit-form">send Massage</button>
+                                    <input type="submit" name="submit">send Massage
                                 </div>
                             </div>
                         </div>

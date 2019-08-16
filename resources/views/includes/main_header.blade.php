@@ -91,7 +91,7 @@
                             </li>
 
 
-                            <li><a href="{{ route('contact') }}">Contact</a></li>
+                            <li><a href="{{ route('messages.create') }}">Contact</a></li>
                             @guest
                             @if (Route::has('login'))
                             <li><a href="{{ route('login') }}">LOGIN / REGISTER</a></li>
@@ -164,7 +164,7 @@
                             </li>
 
 
-                            <li><a href="{{ route('contact') }}">CONTACT</a></li>
+                            <li><a href="{{ route('messages.create') }}">CONTACT</a></li>
                             @guest
                             @if (Route::has('login'))
                             <li><a href="{{ route('login') }}">{{ __('LOGIN') }}</a></li>
